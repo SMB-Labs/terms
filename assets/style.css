@@ -1,0 +1,148 @@
+/* ============================================================
+   Shared design system for legal documents
+   Used by: index.html (hub) and <app>/*.html (document pages)
+   ============================================================ */
+
+:root {
+  --bg: #0f1115;
+  --surface: #171a21;
+  --surface-2: #1f232c;
+  --border: #2a2f3a;
+  --text: #e6e8ee;
+  --text-dim: #9aa3b2;
+  --accent: #8cc63f;
+  --accent-dim: #1f5e44;
+  --radius: 12px;
+  --maxw: 820px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    "Apple SD Gothic Neo", "Noto Sans KR", Arial, sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+/* ---------- Document page header ---------- */
+header.page {
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+}
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 16px 0;
+}
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 700; }
+.brand .logo {
+  width: 34px; height: 34px; border-radius: 9px;
+  background: #fff; padding: 4px; object-fit: contain;
+}
+.home-link { color: var(--text-dim); text-decoration: none; font-size: 14px; }
+.home-link:hover { color: var(--text); }
+
+.hero { padding: 28px 0 36px; }
+.hero h1 { margin: 0 0 6px; font-size: 28px; letter-spacing: -0.01em; }
+.meta {
+  display: flex; flex-wrap: wrap; gap: 8px 16px;
+  color: var(--text-dim); font-size: 14px; margin-top: 10px;
+}
+.meta .pill {
+  background: var(--surface-2); border: 1px solid var(--border);
+  padding: 3px 10px; border-radius: 999px; color: var(--text);
+}
+
+/* ---------- Language toggle ---------- */
+.lang-toggle {
+  display: inline-flex; background: var(--surface-2);
+  border: 1px solid var(--border); border-radius: 999px; padding: 4px; margin-top: 18px;
+}
+.lang-toggle button {
+  appearance: none; border: 0; background: transparent; color: var(--text-dim);
+  padding: 6px 18px; border-radius: 999px; cursor: pointer; font-size: 14px; font-weight: 600;
+  transition: background .15s, color .15s;
+}
+.lang-toggle button.active { background: var(--accent); color: #1a1a1a; }
+
+/* ---------- Document body ---------- */
+main.wrap { padding: 40px 20px 80px; }
+.doc[hidden] { display: none; }
+.lead { color: var(--text-dim); margin: 0 0 8px; }
+
+article h2 {
+  font-size: 18px; margin: 32px 0 10px; padding-top: 8px;
+  border-top: 1px solid var(--border); color: var(--text);
+}
+article h2:first-of-type { border-top: 0; margin-top: 0; }
+article h3 { font-size: 15px; margin: 18px 0 6px; color: var(--text); }
+article p { margin: 10px 0; color: var(--text); }
+article ul { margin: 10px 0; padding-left: 22px; }
+article li { margin: 6px 0; color: var(--text); }
+
+.callout {
+  background: rgba(140, 198, 63, 0.08);
+  border: 1px solid var(--accent-dim);
+  border-radius: var(--radius);
+  padding: 14px 16px; margin: 14px 0;
+  color: var(--text);
+}
+.callout strong { color: var(--accent); }
+
+.contact {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px 18px; margin: 14px 0;
+}
+.contact ul { list-style: none; padding: 0; margin: 0; }
+.contact li { margin: 4px 0; }
+
+/* ---------- Footer ---------- */
+footer.page {
+  border-top: 1px solid var(--border); color: var(--text-dim);
+  font-size: 13px; padding: 24px 0 40px;
+}
+
+/* ---------- Hub (index) page ---------- */
+header.hub {
+  padding: 64px 0 40px;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+}
+header.hub h1 { margin: 0 0 8px; font-size: 32px; letter-spacing: -0.02em; }
+header.hub p { margin: 0; color: var(--text-dim); font-size: 16px; }
+
+.group-title {
+  font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--text-dim); margin: 24px 0 14px;
+}
+.group-title:first-child { margin-top: 0; }
+.grid { display: grid; gap: 14px; }
+
+.card {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px 20px;
+  text-decoration: none; color: var(--text);
+  transition: border-color .15s, transform .15s, background .15s;
+}
+.card:hover { border-color: var(--accent-dim); background: var(--surface-2); transform: translateY(-2px); }
+.card .logo {
+  flex: 0 0 auto; width: 44px; height: 44px; border-radius: 11px;
+  background: #fff; padding: 6px; object-fit: contain;
+}
+.card .body { flex: 1 1 auto; min-width: 0; }
+.card .body h3 { margin: 0 0 3px; font-size: 17px; }
+.card .body span { color: var(--text-dim); font-size: 14px; }
+.card .arrow { color: var(--text-dim); font-size: 20px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 520px) {
+  .hero h1 { font-size: 23px; }
+  header.hub h1 { font-size: 26px; }
+}
