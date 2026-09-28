@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>服务条款 · DigMol</title>
+<style>
+/* ═══════════════════════════════════════════
+   DigMol — 약관 / 개인정보처리방침
+   style.css 다음에 로드됩니다. 랜딩의 토큰(--ink, --paper 등)이
+   있으면 그걸 쓰고, 없으면 아래 폴백 값으로 떨어집니다.
+   ═══════════════════════════════════════════ */
+
+.legal-body {
+  --lg-ink:    var(--ink, #1a1512);
+  --lg-mute:   var(--mute, #7c7168);
+  --lg-paper:  var(--paper, #fdfaf4);
+  --lg-line:   var(--line, #e8e0d4);
+  --lg-accent: var(--accent, #c8622a);
+  --lg-card:   #fff;
+
+  background: var(--lg-paper);
+  color: var(--lg-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.legal-body #nav .nav-links a.on {
+  color: var(--lg-accent);
+  font-weight: 700;
+}
+
+/* ─────────── 레이아웃 ─────────── */
+.legal-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 108px 22px 80px;
+}
+
+.legal-cols {
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+/* ─────────── 헤더 ─────────── */
+.legal-head {
+  padding-bottom: 34px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--lg-line);
+}
+
+.legal-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: var(--lg-accent);
+  margin-bottom: 14px;
+}
+
+.legal-head h1 {
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.14;
+  margin: 0 0 18px;
+}
+
+.legal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin-bottom: 22px;
+}
+
+.legal-meta span {
+  font-size: 12.5px;
+  color: var(--lg-mute);
+  background: var(--lg-card);
+  border: 1px solid var(--lg-line);
+  border-radius: 999px;
+  padding: 5px 13px;
+}
+
+.legal-meta b {
+  color: var(--lg-ink);
+  font-weight: 600;
+  margin-left: 3px;
+}
+
+.legal-lead {
+  font-size: 16.5px;
+  line-height: 1.78;
+  color: var(--lg-mute);
+  max-width: 74ch;
+  margin: 0;
+}
+
+/* ─────────── 목차 ─────────── */
+.legal-toc {
+  position: sticky;
+  top: 92px;
+}
+
+.toc-t {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: var(--lg-mute);
+  margin-bottom: 14px;
+}
+
+.legal-toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: toc;
+  border-left: 2px solid var(--lg-line);
+}
+
+.legal-toc li { counter-increment: toc; }
+
+.legal-toc a {
+  display: block;
+  padding: 7px 0 7px 15px;
+  margin-left: -2px;
+  border-left: 2px solid transparent;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--lg-mute);
+  text-decoration: none;
+  transition: color .16s, border-color .16s;
+}
+
+.legal-toc a:hover { color: var(--lg-ink); }
+
+.legal-toc a.on {
+  color: var(--lg-accent);
+  border-left-color: var(--lg-accent);
+  font-weight: 600;
+}
+
+/* ─────────── 본문 ─────────── */
+.legal-doc { min-width: 0; }
+
+.legal-s { scroll-margin-top: 92px; margin-bottom: 46px; }
+
+.legal-s h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -.02em;
+  line-height: 1.35;
+  margin: 0 0 16px;
+}
+
+.s-no {
+  flex: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--lg-accent);
+  background: color-mix(in srgb, var(--lg-accent) 11%, transparent);
+  border-radius: 7px;
+  min-width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  transform: translateY(-1px);
+}
+
+.legal-doc p {
+  font-size: 15.2px;
+  line-height: 1.85;
+  color: #3c342d;
+  margin: 0 0 14px;
+  max-width: 76ch;
+}
+
+.legal-doc ul,
+.legal-doc ol {
+  margin: 0 0 16px;
+  padding-left: 22px;
+  max-width: 76ch;
+}
+
+.legal-doc li {
+  font-size: 15.2px;
+  line-height: 1.82;
+  color: #3c342d;
+  margin-bottom: 8px;
+  padding-left: 3px;
+}
+
+.legal-doc li::marker { color: var(--lg-accent); font-weight: 600; }
+
+.legal-doc a { color: var(--lg-accent); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ─────────── 요약 박스 ─────────── */
+.legal-tldr {
+  background: var(--lg-card);
+  border: 1px solid var(--lg-line);
+  border-radius: 16px;
+  padding: 22px 24px 18px;
+  margin-bottom: 42px;
+}
+
+.tldr-t {
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: -.01em;
+  margin-bottom: 12px;
+  color: var(--lg-ink);
+}
+
+.tldr-t::before { content: '◆'; color: var(--lg-accent); margin-right: 7px; font-size: 10px; }
+
+.legal-tldr ul { list-style: none; padding: 0; margin: 0 0 12px; }
+
+.legal-tldr li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14.4px;
+  line-height: 1.72;
+  margin-bottom: 9px;
+}
+
+.legal-tldr li::before {
+  content: '';
+  position: absolute;
+  left: 4px; top: 10px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--lg-accent);
+}
+
+.tldr-note {
+  font-size: 12.2px;
+  color: var(--lg-mute);
+  padding-top: 11px;
+  border-top: 1px dashed var(--lg-line);
+}
+
+/* ─────────── 강조 노트 ─────────── */
+.legal-note {
+  background: color-mix(in srgb, var(--lg-accent) 6%, transparent);
+  border-left: 3px solid var(--lg-accent);
+  border-radius: 0 11px 11px 0;
+  padding: 14px 18px;
+  font-size: 14.4px;
+  line-height: 1.75;
+  color: #3c342d;
+  margin: 0 0 16px;
+  max-width: 76ch;
+}
+
+/* ─────────── 표 ─────────── */
+.legal-table-x {
+  overflow-x: auto;
+  margin: 0 0 18px;
+  border: 1px solid var(--lg-line);
+  border-radius: 13px;
+  background: var(--lg-card);
+  -webkit-overflow-scrolling: touch;
+}
+
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 480px;
+}
+
+.legal-table th {
+  text-align: left;
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: .01em;
+  color: var(--lg-mute);
+  padding: 12px 16px;
+  background: color-mix(in srgb, var(--lg-line) 34%, transparent);
+  border-bottom: 1px solid var(--lg-line);
+  white-space: nowrap;
+}
+
+.legal-table td {
+  padding: 13px 16px;
+  line-height: 1.65;
+  color: #3c342d;
+  border-bottom: 1px solid color-mix(in srgb, var(--lg-line) 62%, transparent);
+  vertical-align: top;
+}
+
+.legal-table tr:last-child td { border-bottom: none; }
+.legal-table td:first-child { font-weight: 600; white-space: nowrap; color: var(--lg-ink); }
+
+/* ─────────── 사업자 정보 ─────────── */
+.legal-contact {
+  background: var(--lg-card);
+  border: 1px solid var(--lg-line);
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 52px;
+}
+
+.lc-t {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: var(--lg-mute);
+  margin-bottom: 16px;
+}
+
+.lc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px 26px;
+}
+
+.lc-grid > div { display: flex; flex-direction: column; gap: 3px; }
+.lc-grid span { font-size: 11.8px; color: var(--lg-mute); }
+.lc-grid b { font-size: 14.2px; font-weight: 600; word-break: break-all; }
+
+/* ─────────── 반응형 ─────────── */
+@media (max-width: 900px) {
+  .legal-cols { grid-template-columns: 1fr; gap: 30px; }
+
+  .legal-toc {
+    position: static;
+    background: var(--lg-card);
+    border: 1px solid var(--lg-line);
+    border-radius: 14px;
+    padding: 18px 20px;
+  }
+
+  .legal-toc ol {
+    border-left: none;
+    columns: 2;
+    column-gap: 22px;
+  }
+
+  .legal-toc a {
+    padding: 5px 0;
+    margin-left: 0;
+    border-left: none;
+    break-inside: avoid;
+  }
+
+  .legal-toc a.on { border-left: none; }
+}
+
+@media (max-width: 560px) {
+  .legal-wrap { padding: 92px 17px 64px; }
+  .legal-toc ol { columns: 1; }
+  .legal-doc p, .legal-doc li { font-size: 14.8px; }
+  .legal-s h2 { font-size: 18px; }
+  .legal-contact { padding: 20px; }
+}
+
+
+
+.legal-xlate {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: color-mix(in srgb, var(--lg-accent, #c8622a) 7%, transparent);
+  border: 1px solid color-mix(in srgb, var(--lg-accent, #c8622a) 24%, transparent);
+  border-radius: 12px;
+  padding: 13px 16px;
+  margin: 0 0 26px;
+  font-size: 13.4px;
+  line-height: 1.7;
+  color: var(--lg-mute, #7c7168);
+}
+.legal-xlate b { color: var(--lg-ink, #1a1512); font-weight: 650; }
+.legal-xlate::before { content: '⚖'; flex: none; opacity: .65; }
+
+
+/* ── Mobile WebView overrides ── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #fdfaf4;
+  color: #1a1512;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Pretendard',
+    'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', 'Hiragino Sans',
+    'Apple SD Gothic Neo', sans-serif;
+  line-height: 1.6;
+  padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0)
+           env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
+}
+.legal-body {
+  --lg-ink: #1a1512;
+  --lg-mute: #7c7168;
+  --lg-paper: #fdfaf4;
+  --lg-line: #e8e0d4;
+  --lg-accent: #c8622a;
+  --lg-card: #fff;
+  background: var(--lg-paper);
+  color: var(--lg-ink);
+  -webkit-font-smoothing: antialiased;
+}
+.legal-wrap {
+  max-width: 100% !important;
+  margin: 0 auto;
+  padding: 16px 16px 48px !important;
+}
+.legal-cols {
+  display: block !important;
+}
+.legal-toc {
+  position: static !important;
+  background: var(--lg-card);
+  border: 1px solid var(--lg-line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 28px;
+  top: auto;
+}
+.legal-toc ol {
+  border-left: none !important;
+  columns: 1 !important;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: toc;
+}
+.legal-toc a {
+  padding: 8px 0 !important;
+  margin-left: 0 !important;
+  border-left: none !important;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.legal-toc a.on {
+  border-left: none !important;
+  color: var(--lg-accent);
+  font-weight: 600;
+}
+.legal-s { scroll-margin-top: 12px; margin-bottom: 36px; }
+.legal-head { padding-bottom: 24px; margin-bottom: 28px; }
+.legal-head h1 {
+  font-size: 26px !important;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0 0 14px;
+}
+.legal-lead { font-size: 15px; line-height: 1.75; max-width: none; }
+.legal-meta { gap: 6px 8px; margin-bottom: 16px; }
+.legal-meta span { font-size: 12px; padding: 5px 11px; }
+.legal-doc p,
+.legal-doc li { font-size: 15px !important; line-height: 1.8; max-width: none; }
+.legal-s h2 { font-size: 17.5px !important; gap: 9px; margin: 0 0 12px; }
+.legal-table {
+  min-width: 520px;
+  width: 100%;
+  font-size: 13px;
+}
+.legal-table th,
+.legal-table td {
+  padding: 10px 12px;
+  word-break: break-word;
+}
+.legal-table td:first-child {
+  white-space: normal;
+  min-width: 72px;
+}
+.legal-table-x {
+  margin: 0 0 16px;
+  border-radius: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+.legal-tldr { padding: 18px 16px 14px; margin-bottom: 28px; border-radius: 14px; }
+.legal-tldr li { font-size: 14px; }
+.legal-note { font-size: 14px; padding: 12px 14px; max-width: none; }
+.legal-contact { padding: 18px; margin-top: 36px; border-radius: 14px; }
+.lc-grid {
+  grid-template-columns: 1fr !important;
+  gap: 12px;
+}
+a { -webkit-tap-highlight-color: rgba(200, 98, 42, 0.15); }
+
+</style>
+</head>
+<body class="legal-body">
+<main class="legal-wrap">
+<header class="legal-head">
+    <div class="legal-kicker">LEGAL</div>
+    <h1>服务条款</h1>
+    <div class="legal-meta">
+      <span>生效日<b>2026年1月1日</b></span>
+      <span>最后更新<b>2026年1月1日</b></span>
+      <span>版本<b>1.0</b></span>
+    </div>
+    <p class="legal-lead">本条款规范新加坡法人BUKCS PTE. LTD.所提供之 DigMol 行动应用程序及相关网站服务的使用条件与进程，以及本公司与用户之权利义务。您一经安装应用程序或使用本服务，即视为同意本条款。</p>
+  </header>
+
+  
+  
+    <div class="legal-xlate"><div>本简体中文版本仅供参阅之便。对于居住于大韩民国的用户，如有解释歧异，以韩文版为准。</div></div>
+  
+
+  
+  
+
+  <div class="legal-cols">
+
+    <aside class="legal-toc">
+      <div class="toc-t">目录</div>
+      <ol>
+        
+          <li><a href="#s1">第1条（目的及营运主体）</a></li>
+        
+          <li><a href="#s2">第2条（名词定义）</a></li>
+        
+          <li><a href="#s3">第3条（条款之公告与修订）</a></li>
+        
+          <li><a href="#s4">第4条（契约之成立）</a></li>
+        
+          <li><a href="#s5">第5条（服务之提供）</a></li>
+        
+          <li><a href="#s6">第6条（MOL 奖励之性质）</a></li>
+        
+          <li><a href="#s7">第7条（奖励之累积与发放）</a></li>
+        
+          <li><a href="#s8">第8条（邀请及推荐奖励）</a></li>
+        
+          <li><a href="#s9">第9条（用户之义务）</a></li>
+        
+          <li><a href="#s10">第10条（内容之权利与授权）</a></li>
+        
+          <li><a href="#s11">第11条（使用之限制及契约终止）</a></li>
+        
+          <li><a href="#s12">第12条（服务之变更及终止）</a></li>
+        
+          <li><a href="#s13">第13条（责任限制）</a></li>
+        
+          <li><a href="#s14">第14条（准据法及争议解决）</a></li>
+        
+      </ol>
+    </aside>
+
+    <article class="legal-doc">
+
+      
+        <div class="legal-tldr">
+          <div class="tldr-t">重点摘要</div>
+          <ul>
+            <li>本服务由新加坡法人 <b>BUKCS PTE. LTD.</b> 营运，用户数据将于境外处理。</li><li>无须注册会员。打开应用程序即开始累积 MOL，您的钱包地址即为您的身分。</li><li>MOL 为服务内奖励，<b>并非法定货币，本公司不保证其价值或行情。</b></li><li>若查获不当累积（自动化工具、重复帐号、伪造位置信息等），未发放之累积额度得予取消，并限制使用。</li><li>本条款<b>不排除您居住地消费者保护法令之强制规定。</b></li>
+          </ul>
+          <div class="tldr-note">本摘要仅供理解参考，法律效力以下方全文为准。</div>
+        </div>
+      
+
+      
+        <section class="legal-s" id="s1">
+          <h2><span class="s-no">1</span>第1条（目的及营运主体）</h2>
+
+          
+            
+              <p>本条款旨在规范依新加坡法律设立之BUKCS PTE. LTD.（下称「本公司」）所提供之 DigMol 行动应用程序及附随服务（下称「本服务」），并就本公司与用户间之权利义务、责任、使用条件及进程等基本事项予以约定。</p>
+
+            
+          
+            
+              <div class="legal-note"><b>营运主体声明。</b>本公司为<b>于新加坡登记之法人</b>，用户数据因而于境外处理。详情请参阅<a href="https://digmol.com/zh-Hans/privacy">隐私政策</a>。</div>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s2">
+          <h2><span class="s-no">2</span>第2条（名词定义）</h2>
+
+          
+            
+              <ol><li>「本服务」指本公司提供之 DigMol 应用程序、网站及其附随之一切功能。</li><li>「用户」指依本条款使用本服务之人。</li><li>「MOL」指用户通过服务内活动所累积之奖励。</li><li>「钱包」指用户用以接收及保管 MOL 之区块链地址，及管理该地址之软件。</li><li>「智能合约」指记载奖励发放规则并于区块链网络上自动运行之程序。</li><li>「活动」指拍摄并上传照片、移动（步行）、观看广告、邀请好友等由本公司指定为奖励对象之行为。</li></ol>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s3">
+          <h2><span class="s-no">3</span>第3条（条款之公告与修订）</h2>
+
+          
+            
+              <ol><li>本公司将本条款公告于本服务之起始画面或链接画面，俾用户易于阅览。</li><li>本公司得在不违反相关法令之范围内修订本条款。</li><li>修订本条款时，将载明适用日期及修订事由，自生效日前 7 日起公告。惟如变更对用户不利或属重大变更者，自生效日前 30 日起公告，并以应用程序内通知或电子邮件个别通知。</li><li>用户不同意修订后条款者，得停止使用本服务并终止契约。于公告之生效日后仍继续用户，视为同意修订后之条款。</li></ol>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s4">
+          <h2><span class="s-no">4</span>第4条（契约之成立）</h2>
+
+          
+            
+              <ol><li>本服务无须注册会员即可使用，于用户安装并启动应用程序且同意本条款时，契约即为成立。</li><li>用户之识别，以设备标识符或用户所链接之钱包地址为准。</li><li>未满 14 岁者不得使用本服务。未成年人应取得法定代理人同意后始得使用；本公司查知未成年人使用时，得限制其使用。用户所在国法令另定较高年龄门槛者，从其规定。</li><li>有下列情形之一者，本公司得不予承诺使用，或于事后终止契约：</li></ol>
+
+            
+          
+            
+              <ul><li>未经授权使用他人之名义、设备或钱包</li><li>曾因违反本条款而遭限制使用</li><li>属大韩民国、新加坡或国际制裁名单之对象</li><li>自本公司决定不提供服务之国家或地区连接</li><li>明显以妨碍本服务正常营运为目的</li></ul>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s5">
+          <h2><span class="s-no">5</span>第5条（服务之提供）</h2>
+
+          
+            
+              <p>本公司提供下列服务：</p>
+
+            
+          
+            
+              <ul><li>以活动为基础之 MOL 奖励累积功能</li><li>累积纪录及奖励规则之查找功能</li><li>好友邀请及推荐奖励功能</li><li>奖励加成等倍率相关功能</li><li>其他由本公司开发或通过合作提供之一切服务</li></ul>
+
+            
+          
+            
+              <p>本服务原则上全年无休、24 小时提供。惟因系统维护、设备更换、通信障碍、区块链网络异常等营运上或技术上之必要，本公司得暂停其全部或一部；如有难以事先公告之紧急事由，得于事后公告。</p>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s6">
+          <h2><span class="s-no">6</span>第6条（MOL 奖励之性质）</h2>
+
+          
+            
+              <div class="legal-note"><b>重要。</b>MOL 并非法定货币，本公司不保证亦不承诺其市场价值、兑换比率或收益。使用本服务并非投资行为，本公司亦不提供投资顾问或金融服务。</div>
+
+            
+          
+            
+              <ol><li>MOL 系就服务内活动所给予之奖励，依本公司所定规则发放。</li><li>MOL 之累积、扣除及失效基准，依应用程序内之说明及智能合约所公开之规则。</li><li>本公司对 MOL 之价格、流动性，及其于第三方交易市场是否得以交易，均不为任何保证。</li><li>因持有或处分 MOL 所生之租税，依用户居住地法令由用户自行负担。本公司对用户之纳税义务不负责任。</li><li>用户应自行妥善保管钱包之私钥及助记词。本公司并不保管，对因其遗失或外泄所生之损害不负责任。</li><li>本公司不提供 MOL 之买回、赎回或兑换为法定货币之服务。</li></ol>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s7">
+          <h2><span class="s-no">7</span>第7条（奖励之累积与发放）</h2>
+
+          
+            
+              <ol><li>用户完成本公司所定之活动时，即累积该活动所定数量之 MOL。</li><li>累积数量、每日上限、加成倍率等细部基准公开于应用程序内，并得依服务政策变更。</li><li>奖励通过智能合约发放。因区块链网络壅塞、故障、硬分叉等本公司无法控制之事由，发放可能延迟。</li><li>查获下列不当行为时，本公司就<b>尚未转入用户钱包之累积额度</b>，得取消其累积：</li></ol>
+
+            
+          
+            
+              <ul><li>使用自动化程序（宏、机器人、仿真器等）</li><li>伪造位置信息或窜改设备信息</li><li>同一人使用多个帐号或设备重复累积</li><li>登载不实、盗用或不当之内容而取得累积</li><li>明知系统错误或程序瑕疵仍加以利用而取得累积</li><li>其他不能认为系正常使用本服务之方式所为之累积</li></ul>
+
+            
+          
+            
+              <div class="legal-note"><b>已转入用户钱包之资产，因区块链之技术特性，本公司无法收回。</b>此时本公司将停止后续累积、限制使用；如因该不当行为致本公司受有损害，并得另行请求赔偿。</div>
+
+            
+          
+            
+              <p>本公司于采取上述措施前，将通知用户事由并给予陈述意见之机会。惟为防止损害扩大而有紧急必要者，得于措施后即时通知。</p>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s8">
+          <h2><span class="s-no">8</span>第8条（邀请及推荐奖励）</h2>
+
+          
+            
+              <ol><li>用户得通过个人邀请链接邀请新用户，依本公司所定基准，邀请人与受邀人双方均得获得奖励。</li><li>邀请奖励于受邀人实际安装、启动应用程序并经确认为有效用户后发放。</li><li>有下列情形者，得不发放邀请奖励：本人以多部设备邀请自己、诱导不实安装、大量寄送垃圾消息、以金钱对价诱导安装，或其他违反邀请制度目的之行为。</li><li>本公司得于事先公告后，变更邀请奖励之数量及条件。</li></ol>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s9">
+          <h2><span class="s-no">9</span>第9条（用户之义务）</h2>
+
+          
+            
+              <p>用户不得为下列行为：</p>
+
+            
+          
+            
+              <ul><li>盗用他人之个人数据、钱包地址或设备</li><li>对本服务进行逆向工程、反编译，或未经授权变更应用程序</li><li>使用 root／越狱设备、仿真器、位置伪造程序等规避奖励机制</li><li>对服务器造成过度负荷，或妨碍服务之正常营运</li><li>上传侵害他人著作权、肖像权或其他权利之内容</li><li>上传猥亵、暴力、仇恨或与犯罪相关之内容</li><li>为洗钱、资助恐怖主义、规避制裁等违法目的使用本服务</li><li>违反相关法令、本条款或本公司公告之使用政策</li></ul>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s10">
+          <h2><span class="s-no">10</span>第10条（内容之权利与授权）</h2>
+
+          
+            
+              <ol><li>用户上传之照片等内容，其著作权归属于用户。</li><li>用户就本服务之营运、改善及推广所需范围内，授予本公司无偿、非专属之使用、重制、修改、公开展示及散布该内容之权利。用户删除该内容或终止契约时，该授权于相应范围内消灭；惟已散布之重制物及法令规定应保存者，不在此限。</li><li>本公司得删除或限制显示侵害他人权利或违反法令、本条款之内容，并将事由通知用户。</li><li>本服务本身及本公司制作之内容、商标、设计等权利，均归属于本公司。</li></ol>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s11">
+          <h2><span class="s-no">11</span>第11条（使用之限制及契约终止）</h2>
+
+          
+            
+              <ol><li>用户违反本条款时，本公司得阶段性采取警告、取消累积、暂停使用、永久停权等措施。惟违反情节重大或反复违反者，得迳予永久停权。</li><li>本公司于采取措施前，将通知事由并给予陈述意见之机会。惟情况紧急者，得于措施后即时通知。</li><li>用户得随时通过应用程序内菜单或客服渠道终止契约。</li><li>契约终止后，已累积但尚未发放之 MOL 即失效。已转入用户钱包之资产，不因终止而受影响，仍归属于用户。</li></ol>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s12">
+          <h2><span class="s-no">12</span>第12条（服务之变更及终止）</h2>
+
+          
+            
+              <ol><li>本公司得因营运上或技术上之必要变更服务内容，并事先公告变更内容及适用日期。</li><li>本公司得终止本服务之全部或一部。此时将于终止日 30 日前，以应用程序内公告及电子邮件等方式通知，并一并公告已累积 MOL 之处理方式。</li></ol>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s13">
+          <h2><span class="s-no">13</span>第13条（责任限制）</h2>
+
+          
+            
+              <ol><li>因天灾、战争、国家紧急状态、电信事业者停止服务、区块链网络障碍、中断或分叉等本公司无法控制之事由致无法提供服务者，本公司不负责任。</li><li>因可归责于用户之事由（遗失私钥、输入错误地址、遭受钓鱼攻击等）所生之损害，本公司不负责任。</li><li>用户使用第三方交易所、钱包、DApp 等外部服务所生之损害，本公司不负责任。</li><li>本条不适用于因本公司故意或重大过失所生之损害、生命或身体之损害，以及其他依相关法令不得限制之责任。</li></ol>
+
+            
+          
+            
+              <div class="legal-note"><b>就身为消费者之用户</b>，本条仅在不限制其居住地消费者保护法令所保障权利之范围内适用。</div>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s14">
+          <h2><span class="s-no">14</span>第14条（准据法及争议解决）</h2>
+
+          
+            
+              <ol><li>本公司与用户就本服务发生争议时，应本于诚信协商解决。</li><li>本条款依新加坡法律规范及解释。<b>惟就身为消费者之用户，于不剥夺或限制其惯常居所地强制规定所赋予保护之范围内适用。</b></li><li>身为消费者之用户，得向其居住地法院提起诉讼，本条不限制该项权利。</li><li>关于本服务之申诉，得向下列联系窗口提出，本公司将尽速处理。对处理结果有异议者，得向居住地之消费争议处理机关申请调处。</li></ol>
+
+            
+          
+            
+              <div class="legal-note">本繁体中文版本仅供参阅之便。<b>对于居住于大韩民国之用户，以韩文版为准</b>；其余用户则以英文版为准。</div>
+
+            
+          
+        </section>
+      
+
+      <div class="legal-contact">
+        <div class="lc-t">运营者信息</div>
+        <div class="lc-grid">
+          <div><span>公司名称</span><b>BUKCS PTE. LTD.</b></div>
+          
+          
+          
+          <div><span>设立地</span><b>新加坡</b></div>
+          <div><span>联系方式</span><b><a href="mailto:support@digmol.com">support@digmol.com</a></b></div>
+          <div><span>个人信息联系窗口</span><b><a href="mailto:privacy@digmol.com">privacy@digmol.com</a></b></div>
+        </div>
+      </div>
+
+</article>
+  </div>
+</main>
+</body>
+</html>

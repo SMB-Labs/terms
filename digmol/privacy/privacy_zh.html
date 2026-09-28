@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>隐私政策 · DigMol</title>
+<style>
+/* ═══════════════════════════════════════════
+   DigMol — 약관 / 개인정보처리방침
+   style.css 다음에 로드됩니다. 랜딩의 토큰(--ink, --paper 등)이
+   있으면 그걸 쓰고, 없으면 아래 폴백 값으로 떨어집니다.
+   ═══════════════════════════════════════════ */
+
+.legal-body {
+  --lg-ink:    var(--ink, #1a1512);
+  --lg-mute:   var(--mute, #7c7168);
+  --lg-paper:  var(--paper, #fdfaf4);
+  --lg-line:   var(--line, #e8e0d4);
+  --lg-accent: var(--accent, #c8622a);
+  --lg-card:   #fff;
+
+  background: var(--lg-paper);
+  color: var(--lg-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.legal-body #nav .nav-links a.on {
+  color: var(--lg-accent);
+  font-weight: 700;
+}
+
+/* ─────────── 레이아웃 ─────────── */
+.legal-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 108px 22px 80px;
+}
+
+.legal-cols {
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+/* ─────────── 헤더 ─────────── */
+.legal-head {
+  padding-bottom: 34px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--lg-line);
+}
+
+.legal-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: var(--lg-accent);
+  margin-bottom: 14px;
+}
+
+.legal-head h1 {
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.14;
+  margin: 0 0 18px;
+}
+
+.legal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin-bottom: 22px;
+}
+
+.legal-meta span {
+  font-size: 12.5px;
+  color: var(--lg-mute);
+  background: var(--lg-card);
+  border: 1px solid var(--lg-line);
+  border-radius: 999px;
+  padding: 5px 13px;
+}
+
+.legal-meta b {
+  color: var(--lg-ink);
+  font-weight: 600;
+  margin-left: 3px;
+}
+
+.legal-lead {
+  font-size: 16.5px;
+  line-height: 1.78;
+  color: var(--lg-mute);
+  max-width: 74ch;
+  margin: 0;
+}
+
+/* ─────────── 목차 ─────────── */
+.legal-toc {
+  position: sticky;
+  top: 92px;
+}
+
+.toc-t {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: var(--lg-mute);
+  margin-bottom: 14px;
+}
+
+.legal-toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: toc;
+  border-left: 2px solid var(--lg-line);
+}
+
+.legal-toc li { counter-increment: toc; }
+
+.legal-toc a {
+  display: block;
+  padding: 7px 0 7px 15px;
+  margin-left: -2px;
+  border-left: 2px solid transparent;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--lg-mute);
+  text-decoration: none;
+  transition: color .16s, border-color .16s;
+}
+
+.legal-toc a:hover { color: var(--lg-ink); }
+
+.legal-toc a.on {
+  color: var(--lg-accent);
+  border-left-color: var(--lg-accent);
+  font-weight: 600;
+}
+
+/* ─────────── 본문 ─────────── */
+.legal-doc { min-width: 0; }
+
+.legal-s { scroll-margin-top: 92px; margin-bottom: 46px; }
+
+.legal-s h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -.02em;
+  line-height: 1.35;
+  margin: 0 0 16px;
+}
+
+.s-no {
+  flex: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--lg-accent);
+  background: color-mix(in srgb, var(--lg-accent) 11%, transparent);
+  border-radius: 7px;
+  min-width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  transform: translateY(-1px);
+}
+
+.legal-doc p {
+  font-size: 15.2px;
+  line-height: 1.85;
+  color: #3c342d;
+  margin: 0 0 14px;
+  max-width: 76ch;
+}
+
+.legal-doc ul,
+.legal-doc ol {
+  margin: 0 0 16px;
+  padding-left: 22px;
+  max-width: 76ch;
+}
+
+.legal-doc li {
+  font-size: 15.2px;
+  line-height: 1.82;
+  color: #3c342d;
+  margin-bottom: 8px;
+  padding-left: 3px;
+}
+
+.legal-doc li::marker { color: var(--lg-accent); font-weight: 600; }
+
+.legal-doc a { color: var(--lg-accent); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ─────────── 요약 박스 ─────────── */
+.legal-tldr {
+  background: var(--lg-card);
+  border: 1px solid var(--lg-line);
+  border-radius: 16px;
+  padding: 22px 24px 18px;
+  margin-bottom: 42px;
+}
+
+.tldr-t {
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: -.01em;
+  margin-bottom: 12px;
+  color: var(--lg-ink);
+}
+
+.tldr-t::before { content: '◆'; color: var(--lg-accent); margin-right: 7px; font-size: 10px; }
+
+.legal-tldr ul { list-style: none; padding: 0; margin: 0 0 12px; }
+
+.legal-tldr li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14.4px;
+  line-height: 1.72;
+  margin-bottom: 9px;
+}
+
+.legal-tldr li::before {
+  content: '';
+  position: absolute;
+  left: 4px; top: 10px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--lg-accent);
+}
+
+.tldr-note {
+  font-size: 12.2px;
+  color: var(--lg-mute);
+  padding-top: 11px;
+  border-top: 1px dashed var(--lg-line);
+}
+
+/* ─────────── 강조 노트 ─────────── */
+.legal-note {
+  background: color-mix(in srgb, var(--lg-accent) 6%, transparent);
+  border-left: 3px solid var(--lg-accent);
+  border-radius: 0 11px 11px 0;
+  padding: 14px 18px;
+  font-size: 14.4px;
+  line-height: 1.75;
+  color: #3c342d;
+  margin: 0 0 16px;
+  max-width: 76ch;
+}
+
+/* ─────────── 표 ─────────── */
+.legal-table-x {
+  overflow-x: auto;
+  margin: 0 0 18px;
+  border: 1px solid var(--lg-line);
+  border-radius: 13px;
+  background: var(--lg-card);
+  -webkit-overflow-scrolling: touch;
+}
+
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 480px;
+}
+
+.legal-table th {
+  text-align: left;
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: .01em;
+  color: var(--lg-mute);
+  padding: 12px 16px;
+  background: color-mix(in srgb, var(--lg-line) 34%, transparent);
+  border-bottom: 1px solid var(--lg-line);
+  white-space: nowrap;
+}
+
+.legal-table td {
+  padding: 13px 16px;
+  line-height: 1.65;
+  color: #3c342d;
+  border-bottom: 1px solid color-mix(in srgb, var(--lg-line) 62%, transparent);
+  vertical-align: top;
+}
+
+.legal-table tr:last-child td { border-bottom: none; }
+.legal-table td:first-child { font-weight: 600; white-space: nowrap; color: var(--lg-ink); }
+
+/* ─────────── 사업자 정보 ─────────── */
+.legal-contact {
+  background: var(--lg-card);
+  border: 1px solid var(--lg-line);
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 52px;
+}
+
+.lc-t {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: var(--lg-mute);
+  margin-bottom: 16px;
+}
+
+.lc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px 26px;
+}
+
+.lc-grid > div { display: flex; flex-direction: column; gap: 3px; }
+.lc-grid span { font-size: 11.8px; color: var(--lg-mute); }
+.lc-grid b { font-size: 14.2px; font-weight: 600; word-break: break-all; }
+
+/* ─────────── 반응형 ─────────── */
+@media (max-width: 900px) {
+  .legal-cols { grid-template-columns: 1fr; gap: 30px; }
+
+  .legal-toc {
+    position: static;
+    background: var(--lg-card);
+    border: 1px solid var(--lg-line);
+    border-radius: 14px;
+    padding: 18px 20px;
+  }
+
+  .legal-toc ol {
+    border-left: none;
+    columns: 2;
+    column-gap: 22px;
+  }
+
+  .legal-toc a {
+    padding: 5px 0;
+    margin-left: 0;
+    border-left: none;
+    break-inside: avoid;
+  }
+
+  .legal-toc a.on { border-left: none; }
+}
+
+@media (max-width: 560px) {
+  .legal-wrap { padding: 92px 17px 64px; }
+  .legal-toc ol { columns: 1; }
+  .legal-doc p, .legal-doc li { font-size: 14.8px; }
+  .legal-s h2 { font-size: 18px; }
+  .legal-contact { padding: 20px; }
+}
+
+
+
+.legal-xlate {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: color-mix(in srgb, var(--lg-accent, #c8622a) 7%, transparent);
+  border: 1px solid color-mix(in srgb, var(--lg-accent, #c8622a) 24%, transparent);
+  border-radius: 12px;
+  padding: 13px 16px;
+  margin: 0 0 26px;
+  font-size: 13.4px;
+  line-height: 1.7;
+  color: var(--lg-mute, #7c7168);
+}
+.legal-xlate b { color: var(--lg-ink, #1a1512); font-weight: 650; }
+.legal-xlate::before { content: '⚖'; flex: none; opacity: .65; }
+
+
+/* ── Mobile WebView overrides ── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #fdfaf4;
+  color: #1a1512;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Pretendard',
+    'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', 'Hiragino Sans',
+    'Apple SD Gothic Neo', sans-serif;
+  line-height: 1.6;
+  padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0)
+           env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
+}
+.legal-body {
+  --lg-ink: #1a1512;
+  --lg-mute: #7c7168;
+  --lg-paper: #fdfaf4;
+  --lg-line: #e8e0d4;
+  --lg-accent: #c8622a;
+  --lg-card: #fff;
+  background: var(--lg-paper);
+  color: var(--lg-ink);
+  -webkit-font-smoothing: antialiased;
+}
+.legal-wrap {
+  max-width: 100% !important;
+  margin: 0 auto;
+  padding: 16px 16px 48px !important;
+}
+.legal-cols {
+  display: block !important;
+}
+.legal-toc {
+  position: static !important;
+  background: var(--lg-card);
+  border: 1px solid var(--lg-line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 28px;
+  top: auto;
+}
+.legal-toc ol {
+  border-left: none !important;
+  columns: 1 !important;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: toc;
+}
+.legal-toc a {
+  padding: 8px 0 !important;
+  margin-left: 0 !important;
+  border-left: none !important;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.legal-toc a.on {
+  border-left: none !important;
+  color: var(--lg-accent);
+  font-weight: 600;
+}
+.legal-s { scroll-margin-top: 12px; margin-bottom: 36px; }
+.legal-head { padding-bottom: 24px; margin-bottom: 28px; }
+.legal-head h1 {
+  font-size: 26px !important;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0 0 14px;
+}
+.legal-lead { font-size: 15px; line-height: 1.75; max-width: none; }
+.legal-meta { gap: 6px 8px; margin-bottom: 16px; }
+.legal-meta span { font-size: 12px; padding: 5px 11px; }
+.legal-doc p,
+.legal-doc li { font-size: 15px !important; line-height: 1.8; max-width: none; }
+.legal-s h2 { font-size: 17.5px !important; gap: 9px; margin: 0 0 12px; }
+.legal-table {
+  min-width: 520px;
+  width: 100%;
+  font-size: 13px;
+}
+.legal-table th,
+.legal-table td {
+  padding: 10px 12px;
+  word-break: break-word;
+}
+.legal-table td:first-child {
+  white-space: normal;
+  min-width: 72px;
+}
+.legal-table-x {
+  margin: 0 0 16px;
+  border-radius: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+.legal-tldr { padding: 18px 16px 14px; margin-bottom: 28px; border-radius: 14px; }
+.legal-tldr li { font-size: 14px; }
+.legal-note { font-size: 14px; padding: 12px 14px; max-width: none; }
+.legal-contact { padding: 18px; margin-top: 36px; border-radius: 14px; }
+.lc-grid {
+  grid-template-columns: 1fr !important;
+  gap: 12px;
+}
+a { -webkit-tap-highlight-color: rgba(200, 98, 42, 0.15); }
+
+</style>
+</head>
+<body class="legal-body">
+<main class="legal-wrap">
+<header class="legal-head">
+    <div class="legal-kicker">PRIVACY</div>
+    <h1>隐私政策</h1>
+    <div class="legal-meta">
+      <span>生效日<b>2026年1月1日</b></span>
+      <span>最后更新<b>2026年1月1日</b></span>
+      <span>版本<b>1.0</b></span>
+    </div>
+    <p class="legal-lead">新加坡法人BUKCS PTE. LTD.（下称「本公司」）重视用户之个人数据，并遵循新加坡个人数据保护法（PDPA）、大韩民国个人情报保护法及其他相关法令。本政策说明 DigMol 应用程序及网站收集哪些数据、如何利用、保存与销毁，以及如何进行跨境传输。</p>
+  </header>
+
+  
+  
+    <div class="legal-xlate"><div>本简体中文版本仅供参阅之便。对于居住于大韩民国的用户，如有解释歧异，以韩文版为准。</div></div>
+  
+
+  
+  
+
+  <div class="legal-cols">
+
+    <aside class="legal-toc">
+      <div class="toc-t">目录</div>
+      <ol>
+        
+          <li><a href="#s1">1. 收集之个人数据项目</a></li>
+        
+          <li><a href="#s2">2. 个人数据之利用目的</a></li>
+        
+          <li><a href="#s3">3. 保存及利用期间</a></li>
+        
+          <li><a href="#s4">4. 个人数据之第三方提供</a></li>
+        
+          <li><a href="#s5">5. 个人数据处理之委外</a></li>
+        
+          <li><a href="#s6">6. 用户之权利及行使方式</a></li>
+        
+          <li><a href="#s7">7. 个人数据之跨境传输</a></li>
+        
+          <li><a href="#s8">8. 未成年人之个人数据</a></li>
+        
+          <li><a href="#s9">9. Cookie 及类似技术</a></li>
+        
+          <li><a href="#s10">10. 个人数据之安全维护措施</a></li>
+        
+          <li><a href="#s11">11. 个人数据保护负责人及联系方式</a></li>
+        
+          <li><a href="#s12">12. 本政策之变更</a></li>
+        
+      </ol>
+    </aside>
+
+    <article class="legal-doc">
+
+      
+        <div class="legal-tldr">
+          <div class="tldr-t">重点摘要</div>
+          <ul>
+            <li>营运者为新加坡法人，<b>所收集之数据于境外处理及保存</b>（详见第 7 点）。</li><li>本服务不进行会员注册，亦不收集姓名或身份证号码等识别数据。</li><li>为计算奖励及防范滥用，本公司处理<b>设备标识符、钱包地址及活动纪录</b>。</li><li>位置信息与相机仅于您使用相关功能且已授权时始行访问。</li><li>您随时得请求查阅或删除。惟<b>已记录于区块链之交易，技术上无法删除。</b></li>
+          </ul>
+          <div class="tldr-note">本摘要仅供理解参考，法律效力以下方全文为准。</div>
+        </div>
+      
+
+      
+        <section class="legal-s" id="s1">
+          <h2><span class="s-no">1</span>1. 收集之个人数据项目</h2>
+
+          
+            
+              <p>本公司仅收集提供服务所需之最小限度数据。因无会员注册进程，故不收集姓名、出生年月日、身份证号码等识别数据。</p>
+
+            
+          
+            
+              <div class="legal-table-x">
+                <table class="legal-table">
+                  <thead><tr>
+                    <th>类别</th><th>项目</th><th>收集时点</th>
+                  </tr></thead>
+                  <tbody>
+                    
+                      <tr><td>必要</td><td>设备标识符（含广告标识符）、操作系统与设备型号、应用程序版本</td><td>首次启动时自动收集</td></tr>
+                    
+                      <tr><td>必要</td><td>区块链钱包地址、交易哈希值</td><td>链接钱包及发放奖励时</td></tr>
+                    
+                      <tr><td>必要</td><td>活动纪录（累积明细、时间、加成倍率）、邀请码与来源</td><td>使用服务时自动收集</td></tr>
+                    
+                      <tr><td>选择</td><td>位置信息（GPS 座标、移动距离）</td><td>使用步行奖励功能时（经同意后）</td></tr>
+                    
+                      <tr><td>选择</td><td>照片及拍摄中继数据</td><td>使用照片上传功能时（经同意后）</td></tr>
+                    
+                      <tr><td>选择</td><td>推送通知令牌</td><td>同意接收通知时</td></tr>
+                    
+                      <tr><td>选择</td><td>电子邮件地址</td><td>提出询问或检举时由用户自行填写</td></tr>
+                    
+                      <tr><td>自动</td><td>连接 IP、连接时间、Cookie、服务使用纪录、错误日志</td><td>使用服务时自动收集</td></tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s2">
+          <h2><span class="s-no">2</span>2. 个人数据之利用目的</h2>
+
+          
+            
+              <ul><li><b>提供服务</b> — 辨识活动、计算 MOL 累积、发放奖励、查找累积明细</li><li><b>防范不当使用</b> — 侦测重复帐号、自动化工具与位置伪造，阻挡滥用</li><li><b>管理邀请与推荐</b> — 确认邀请链接来源、发放双方奖励</li><li><b>改善服务</b> — 分析使用统计、诊断错误、改善及开发功能</li><li><b>客户服务</b> — 受理询问与检举并回复处理结果</li><li><b>公告与通知</b> — 条款变更、奖励政策变更、维护等必要通知（经选择同意者包含行销信息）</li><li><b>遵循法令</b> — 履行新加坡及大韩民国法令义务、确认制裁对象、回应侦查机关之合法请求</li></ul>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s3">
+          <h2><span class="s-no">3</span>3. 保存及利用期间</h2>
+
+          
+            
+              <p>收集目的达成后，本公司即刻销毁个人数据。惟下列情形于各该期间内保存：</p>
+
+            
+          
+            
+              <div class="legal-table-x">
+                <table class="legal-table">
+                  <thead><tr>
+                    <th>数据</th><th>保存期间</th><th>依据</th>
+                  </tr></thead>
+                  <tbody>
+                    
+                      <tr><td>设备标识符、活动纪录</td><td>契约终止后 30 日</td><td>防止滥用再发生及处理询问</td></tr>
+                    
+                      <tr><td>不当使用纪录</td><td>3 年</td><td>防止再发生及处理争议</td></tr>
+                    
+                      <tr><td>位置信息</td><td>每次使用后即刻销毁（仅保存汇总之移动距离）</td><td>位置信息相关法令</td></tr>
+                    
+                      <tr><td>询问与客服纪录</td><td>3 年</td><td>消费争议处理纪录</td></tr>
+                    
+                      <tr><td>连接日志、IP</td><td>3 个月</td><td>通信秘密保护相关法令</td></tr>
+                    
+                      <tr><td>防制洗钱相关纪录</td><td>5 年</td><td>新加坡及相关国家法令</td></tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            
+          
+            
+              <div class="legal-note">钱包地址与交易纪录系记录于区块链，<b>本公司无法删除。</b>此为分布式帐本技术之本质特性，请于链接钱包前务必知悉。</div>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s4">
+          <h2><span class="s-no">4</span>4. 个人数据之第三方提供</h2>
+
+          
+            
+              <p>本公司不将用户个人数据提供予第三方。惟下列情形不在此限：</p>
+
+            
+          
+            
+              <ul><li>用户事先明示同意</li><li>法令另有规定，或新加坡、大韩民国之侦查机关依法定进程及方法提出请求</li><li>为统计或学术研究目的，以无从识别特定个人之形式加工后提供</li></ul>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s5">
+          <h2><span class="s-no">5</span>5. 个人数据处理之委外</h2>
+
+          
+            
+              <p>为顺利提供服务，本公司委外处理下列业务，并于委外契约中明定个人数据保护事项，实施管理与监督。</p>
+
+            
+          
+            
+              <div class="legal-table-x">
+                <table class="legal-table">
+                  <thead><tr>
+                    <th>受托者</th><th>委外业务</th><th>保存期间</th>
+                  </tr></thead>
+                  <tbody>
+                    
+                      <tr><td>云基础设施供应商</td><td>服务器营运及数据保存</td><td>至委外契约终止时</td></tr>
+                    
+                      <tr><td>推送通知服务供应商</td><td>发送应用程序推送消息</td><td>至委外契约终止时</td></tr>
+                    
+                      <tr><td>广告联盟业者</td><td>投放奖励型广告及确认观看</td><td>至委外契约终止时</td></tr>
+                    
+                      <tr><td>分析工具供应商</td><td>分析使用统计及收集错误信息</td><td>至委外契约终止时</td></tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            
+          
+            
+              <div class="legal-note">受托者之具体名称得依服务架构调整，变更时将通过本政策公开。多数受托者之服务器位于境外，请并同参阅下列<b>第 7 点（跨境传输）</b>。</div>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s6">
+          <h2><span class="s-no">6</span>6. 用户之权利及行使方式</h2>
+
+          
+            
+              <p>用户随时得行使下列权利：</p>
+
+            
+          
+            
+              <ol><li>请求查阅个人数据</li><li>数据有误时请求更正</li><li>请求删除（法令规定应保存者除外）</li><li>请求停止处理</li><li>撤回同意之权利（限选择同意项目）</li><li>拒绝跨境传输之权利（惟此时服务之使用可能受到限制）</li></ol>
+
+            
+          
+            
+              <p>权利之行使得通过应用程序内设置菜单，或来信 <a href="mailto:privacy@digmol.com">privacy@digmol.com</a>。本公司自收受请求之日起 10 日内通知处理结果。用户请求删除者，本公司将以无法复原或重制之方式销毁该数据。</p>
+
+            
+          
+            
+              <div class="legal-note">位置信息及相机访问权限，得随时于设备操作系统设置中撤回。惟撤回后，步行、照片等相关奖励功能将无法使用。</div>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s7">
+          <h2><span class="s-no">7</span>7. 个人数据之跨境传输</h2>
+
+          
+            
+              <div class="legal-note"><b>请务必确认。</b>本公司为设立于新加坡之法人，服务基础设施亦位于境外。因此，用户之个人数据将<b>传输至境外处理及保存。</b></div>
+
+            
+          
+            
+              <p>依大韩民国「个人情报保护法」第 28 条之 8 及新加坡 PDPA 之传输限制义务，就跨境传输事项告知如下：</p>
+
+            
+          
+            
+              <div class="legal-table-x">
+                <table class="legal-table">
+                  <thead><tr>
+                    <th>项目</th><th>内容</th>
+                  </tr></thead>
+                  <tbody>
+                    
+                      <tr><td>接收方</td><td>BUKCS PTE. LTD.（服务营运者）及上述第 5 点所列受托者</td></tr>
+                    
+                      <tr><td>传输目的地</td><td>新加坡及各受托者服务器所在国</td></tr>
+                    
+                      <tr><td>接收国之个人数据保护制度</td><td>新加坡设有个人数据保护法（PDPA），并由个人数据保护委员会（PDPC）担任监管机关，相关信息可于 pdpc.gov.sg 查找。</td></tr>
+                    
+                      <tr><td>传输项目</td><td>上述第 1 点所载之全部收集项目</td></tr>
+                    
+                      <tr><td>传输时间及方式</td><td>于使用服务时，通过网络以加密状态随时发送</td></tr>
+                    
+                      <tr><td>传输目的</td><td>上述第 2 点所载之全部利用目的</td></tr>
+                    
+                      <tr><td>保存及利用期间</td><td>同上述第 3 点所载期间</td></tr>
+                    
+                      <tr><td>拒绝方式及效果</td><td>得来信 <a href="mailto:privacy@digmol.com">privacy@digmol.com</a> 表示拒绝。惟跨境传输为提供服务所必要，拒绝时服务之使用可能受限或无法使用。</td></tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            
+          
+            
+              <p>本公司对跨境传输之个人数据，适用相当于您所在地法令所要求水准之保护措施，并通过传输加密及访问控管予以安全管理。</p>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s8">
+          <h2><span class="s-no">8</span>8. 未成年人之个人数据</h2>
+
+          
+            
+              <p>本公司不收集未满 14 岁者之个人数据，亦不以其为服务对象。经确认收集到未满 14 岁者之数据时，将即刻销毁该数据并停止其使用。用户所在国法令另定较高年龄门槛者，从其规定。</p>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s9">
+          <h2><span class="s-no">9</span>9. Cookie 及类似技术</h2>
+
+          
+            
+              <p>本公司于网站使用 Cookie 及本机保存空间，以维持邀请码之来源归属并掌握服务使用统计。</p>
+
+            
+          
+            
+              <ul><li><b>必要 Cookie</b> — 保存邀请码与语言设置、维持会话，为提供服务所必需。</li><li><b>分析用保存</b> — 页面造访统计及错误诊断。</li></ul>
+
+            
+          
+            
+              <p>用户得于浏览器设置中拒绝保存 Cookie。惟封锁必要 Cookie 时，邀请奖励可能无法正常归属。</p>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s10">
+          <h2><span class="s-no">10</span>10. 个人数据之安全维护措施</h2>
+
+          
+            
+              <ul><li><b>技术面</b> — 传输加密（HTTPS/TLS）、重要数据保存加密、最小化访问权限、运作入侵防御系统</li><li><b>管理面</b> — 最小化个人数据处理人员并定期教育训练、订定并运行内部管理计划、保存并审计访问纪录</li><li><b>实体面</b> — 对数据存放设施实施门禁管理</li></ul>
+
+            
+          
+            
+              <div class="legal-note">本公司不收集亦不保管用户钱包之私钥或助记词。本公司人员在任何情况下均不会询问私钥，凡有此类要求皆属冒名，请勿回应并立即通报。</div>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s11">
+          <h2><span class="s-no">11</span>11. 个人数据保护负责人及联系方式</h2>
+
+          
+            
+              <p>本公司指定下列负责人，综理个人数据处理业务并处理用户申诉。</p>
+
+            
+          
+            
+              <ul><li>个人数据保护负责人：（预定指派）</li><li>联系方式：<a href="mailto:privacy@digmol.com">privacy@digmol.com</a></li></ul>
+
+            
+          
+            
+              <p>关于个人数据处理之申诉，亦得向主管机关提出：</p>
+
+            
+          
+            
+              <ul><li>新加坡 — 个人数据保护委员会（PDPC）pdpc.gov.sg</li><li>台湾 — 个人数据保护委员会筹备处／各该目的事业主管机关</li><li>大韩民国 — 个人信息纠纷调解委员会 kopico.go.kr / 1833-6972</li></ul>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s12">
+          <h2><span class="s-no">12</span>12. 本政策之变更</h2>
+
+          
+            
+              <p>本隐私政策得因法令、政策或服务内容变更而修订。修订时，将自生效日前 7 日起于应用程序内公告或通过网站说明变更事项及适用日期。惟变更对用户权利有重大影响者，将于 30 日前公告，并于必要时另行取得同意。</p>
+
+            
+          
+        </section>
+      
+
+      <div class="legal-contact">
+        <div class="lc-t">运营者信息</div>
+        <div class="lc-grid">
+          <div><span>公司名称</span><b>BUKCS PTE. LTD.</b></div>
+          
+          
+          
+          <div><span>设立地</span><b>新加坡</b></div>
+          <div><span>联系方式</span><b><a href="mailto:support@digmol.com">support@digmol.com</a></b></div>
+          <div><span>个人信息联系窗口</span><b><a href="mailto:privacy@digmol.com">privacy@digmol.com</a></b></div>
+        </div>
+      </div>
+
+</article>
+  </div>
+</main>
+</body>
+</html>

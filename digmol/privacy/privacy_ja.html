@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>プライバシーポリシー · DigMol</title>
+<style>
+/* ═══════════════════════════════════════════
+   DigMol — 약관 / 개인정보처리방침
+   style.css 다음에 로드됩니다. 랜딩의 토큰(--ink, --paper 등)이
+   있으면 그걸 쓰고, 없으면 아래 폴백 값으로 떨어집니다.
+   ═══════════════════════════════════════════ */
+
+.legal-body {
+  --lg-ink:    var(--ink, #1a1512);
+  --lg-mute:   var(--mute, #7c7168);
+  --lg-paper:  var(--paper, #fdfaf4);
+  --lg-line:   var(--line, #e8e0d4);
+  --lg-accent: var(--accent, #c8622a);
+  --lg-card:   #fff;
+
+  background: var(--lg-paper);
+  color: var(--lg-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.legal-body #nav .nav-links a.on {
+  color: var(--lg-accent);
+  font-weight: 700;
+}
+
+/* ─────────── 레이아웃 ─────────── */
+.legal-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 108px 22px 80px;
+}
+
+.legal-cols {
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+/* ─────────── 헤더 ─────────── */
+.legal-head {
+  padding-bottom: 34px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--lg-line);
+}
+
+.legal-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: var(--lg-accent);
+  margin-bottom: 14px;
+}
+
+.legal-head h1 {
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.14;
+  margin: 0 0 18px;
+}
+
+.legal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin-bottom: 22px;
+}
+
+.legal-meta span {
+  font-size: 12.5px;
+  color: var(--lg-mute);
+  background: var(--lg-card);
+  border: 1px solid var(--lg-line);
+  border-radius: 999px;
+  padding: 5px 13px;
+}
+
+.legal-meta b {
+  color: var(--lg-ink);
+  font-weight: 600;
+  margin-left: 3px;
+}
+
+.legal-lead {
+  font-size: 16.5px;
+  line-height: 1.78;
+  color: var(--lg-mute);
+  max-width: 74ch;
+  margin: 0;
+}
+
+/* ─────────── 목차 ─────────── */
+.legal-toc {
+  position: sticky;
+  top: 92px;
+}
+
+.toc-t {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: var(--lg-mute);
+  margin-bottom: 14px;
+}
+
+.legal-toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: toc;
+  border-left: 2px solid var(--lg-line);
+}
+
+.legal-toc li { counter-increment: toc; }
+
+.legal-toc a {
+  display: block;
+  padding: 7px 0 7px 15px;
+  margin-left: -2px;
+  border-left: 2px solid transparent;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--lg-mute);
+  text-decoration: none;
+  transition: color .16s, border-color .16s;
+}
+
+.legal-toc a:hover { color: var(--lg-ink); }
+
+.legal-toc a.on {
+  color: var(--lg-accent);
+  border-left-color: var(--lg-accent);
+  font-weight: 600;
+}
+
+/* ─────────── 본문 ─────────── */
+.legal-doc { min-width: 0; }
+
+.legal-s { scroll-margin-top: 92px; margin-bottom: 46px; }
+
+.legal-s h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -.02em;
+  line-height: 1.35;
+  margin: 0 0 16px;
+}
+
+.s-no {
+  flex: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--lg-accent);
+  background: color-mix(in srgb, var(--lg-accent) 11%, transparent);
+  border-radius: 7px;
+  min-width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  transform: translateY(-1px);
+}
+
+.legal-doc p {
+  font-size: 15.2px;
+  line-height: 1.85;
+  color: #3c342d;
+  margin: 0 0 14px;
+  max-width: 76ch;
+}
+
+.legal-doc ul,
+.legal-doc ol {
+  margin: 0 0 16px;
+  padding-left: 22px;
+  max-width: 76ch;
+}
+
+.legal-doc li {
+  font-size: 15.2px;
+  line-height: 1.82;
+  color: #3c342d;
+  margin-bottom: 8px;
+  padding-left: 3px;
+}
+
+.legal-doc li::marker { color: var(--lg-accent); font-weight: 600; }
+
+.legal-doc a { color: var(--lg-accent); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ─────────── 요약 박스 ─────────── */
+.legal-tldr {
+  background: var(--lg-card);
+  border: 1px solid var(--lg-line);
+  border-radius: 16px;
+  padding: 22px 24px 18px;
+  margin-bottom: 42px;
+}
+
+.tldr-t {
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: -.01em;
+  margin-bottom: 12px;
+  color: var(--lg-ink);
+}
+
+.tldr-t::before { content: '◆'; color: var(--lg-accent); margin-right: 7px; font-size: 10px; }
+
+.legal-tldr ul { list-style: none; padding: 0; margin: 0 0 12px; }
+
+.legal-tldr li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14.4px;
+  line-height: 1.72;
+  margin-bottom: 9px;
+}
+
+.legal-tldr li::before {
+  content: '';
+  position: absolute;
+  left: 4px; top: 10px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--lg-accent);
+}
+
+.tldr-note {
+  font-size: 12.2px;
+  color: var(--lg-mute);
+  padding-top: 11px;
+  border-top: 1px dashed var(--lg-line);
+}
+
+/* ─────────── 강조 노트 ─────────── */
+.legal-note {
+  background: color-mix(in srgb, var(--lg-accent) 6%, transparent);
+  border-left: 3px solid var(--lg-accent);
+  border-radius: 0 11px 11px 0;
+  padding: 14px 18px;
+  font-size: 14.4px;
+  line-height: 1.75;
+  color: #3c342d;
+  margin: 0 0 16px;
+  max-width: 76ch;
+}
+
+/* ─────────── 표 ─────────── */
+.legal-table-x {
+  overflow-x: auto;
+  margin: 0 0 18px;
+  border: 1px solid var(--lg-line);
+  border-radius: 13px;
+  background: var(--lg-card);
+  -webkit-overflow-scrolling: touch;
+}
+
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 480px;
+}
+
+.legal-table th {
+  text-align: left;
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: .01em;
+  color: var(--lg-mute);
+  padding: 12px 16px;
+  background: color-mix(in srgb, var(--lg-line) 34%, transparent);
+  border-bottom: 1px solid var(--lg-line);
+  white-space: nowrap;
+}
+
+.legal-table td {
+  padding: 13px 16px;
+  line-height: 1.65;
+  color: #3c342d;
+  border-bottom: 1px solid color-mix(in srgb, var(--lg-line) 62%, transparent);
+  vertical-align: top;
+}
+
+.legal-table tr:last-child td { border-bottom: none; }
+.legal-table td:first-child { font-weight: 600; white-space: nowrap; color: var(--lg-ink); }
+
+/* ─────────── 사업자 정보 ─────────── */
+.legal-contact {
+  background: var(--lg-card);
+  border: 1px solid var(--lg-line);
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 52px;
+}
+
+.lc-t {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: var(--lg-mute);
+  margin-bottom: 16px;
+}
+
+.lc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px 26px;
+}
+
+.lc-grid > div { display: flex; flex-direction: column; gap: 3px; }
+.lc-grid span { font-size: 11.8px; color: var(--lg-mute); }
+.lc-grid b { font-size: 14.2px; font-weight: 600; word-break: break-all; }
+
+/* ─────────── 반응형 ─────────── */
+@media (max-width: 900px) {
+  .legal-cols { grid-template-columns: 1fr; gap: 30px; }
+
+  .legal-toc {
+    position: static;
+    background: var(--lg-card);
+    border: 1px solid var(--lg-line);
+    border-radius: 14px;
+    padding: 18px 20px;
+  }
+
+  .legal-toc ol {
+    border-left: none;
+    columns: 2;
+    column-gap: 22px;
+  }
+
+  .legal-toc a {
+    padding: 5px 0;
+    margin-left: 0;
+    border-left: none;
+    break-inside: avoid;
+  }
+
+  .legal-toc a.on { border-left: none; }
+}
+
+@media (max-width: 560px) {
+  .legal-wrap { padding: 92px 17px 64px; }
+  .legal-toc ol { columns: 1; }
+  .legal-doc p, .legal-doc li { font-size: 14.8px; }
+  .legal-s h2 { font-size: 18px; }
+  .legal-contact { padding: 20px; }
+}
+
+
+
+.legal-xlate {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: color-mix(in srgb, var(--lg-accent, #c8622a) 7%, transparent);
+  border: 1px solid color-mix(in srgb, var(--lg-accent, #c8622a) 24%, transparent);
+  border-radius: 12px;
+  padding: 13px 16px;
+  margin: 0 0 26px;
+  font-size: 13.4px;
+  line-height: 1.7;
+  color: var(--lg-mute, #7c7168);
+}
+.legal-xlate b { color: var(--lg-ink, #1a1512); font-weight: 650; }
+.legal-xlate::before { content: '⚖'; flex: none; opacity: .65; }
+
+
+/* ── Mobile WebView overrides ── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #fdfaf4;
+  color: #1a1512;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Pretendard',
+    'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', 'Hiragino Sans',
+    'Apple SD Gothic Neo', sans-serif;
+  line-height: 1.6;
+  padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0)
+           env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
+}
+.legal-body {
+  --lg-ink: #1a1512;
+  --lg-mute: #7c7168;
+  --lg-paper: #fdfaf4;
+  --lg-line: #e8e0d4;
+  --lg-accent: #c8622a;
+  --lg-card: #fff;
+  background: var(--lg-paper);
+  color: var(--lg-ink);
+  -webkit-font-smoothing: antialiased;
+}
+.legal-wrap {
+  max-width: 100% !important;
+  margin: 0 auto;
+  padding: 16px 16px 48px !important;
+}
+.legal-cols {
+  display: block !important;
+}
+.legal-toc {
+  position: static !important;
+  background: var(--lg-card);
+  border: 1px solid var(--lg-line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 28px;
+  top: auto;
+}
+.legal-toc ol {
+  border-left: none !important;
+  columns: 1 !important;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: toc;
+}
+.legal-toc a {
+  padding: 8px 0 !important;
+  margin-left: 0 !important;
+  border-left: none !important;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.legal-toc a.on {
+  border-left: none !important;
+  color: var(--lg-accent);
+  font-weight: 600;
+}
+.legal-s { scroll-margin-top: 12px; margin-bottom: 36px; }
+.legal-head { padding-bottom: 24px; margin-bottom: 28px; }
+.legal-head h1 {
+  font-size: 26px !important;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0 0 14px;
+}
+.legal-lead { font-size: 15px; line-height: 1.75; max-width: none; }
+.legal-meta { gap: 6px 8px; margin-bottom: 16px; }
+.legal-meta span { font-size: 12px; padding: 5px 11px; }
+.legal-doc p,
+.legal-doc li { font-size: 15px !important; line-height: 1.8; max-width: none; }
+.legal-s h2 { font-size: 17.5px !important; gap: 9px; margin: 0 0 12px; }
+.legal-table {
+  min-width: 520px;
+  width: 100%;
+  font-size: 13px;
+}
+.legal-table th,
+.legal-table td {
+  padding: 10px 12px;
+  word-break: break-word;
+}
+.legal-table td:first-child {
+  white-space: normal;
+  min-width: 72px;
+}
+.legal-table-x {
+  margin: 0 0 16px;
+  border-radius: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+.legal-tldr { padding: 18px 16px 14px; margin-bottom: 28px; border-radius: 14px; }
+.legal-tldr li { font-size: 14px; }
+.legal-note { font-size: 14px; padding: 12px 14px; max-width: none; }
+.legal-contact { padding: 18px; margin-top: 36px; border-radius: 14px; }
+.lc-grid {
+  grid-template-columns: 1fr !important;
+  gap: 12px;
+}
+a { -webkit-tap-highlight-color: rgba(200, 98, 42, 0.15); }
+
+</style>
+</head>
+<body class="legal-body">
+<main class="legal-wrap">
+<header class="legal-head">
+    <div class="legal-kicker">PRIVACY</div>
+    <h1>プライバシーポリシー</h1>
+    <div class="legal-meta">
+      <span>施行日<b>2026年1月1日</b></span>
+      <span>最終改定<b>2026年1月1日</b></span>
+      <span>バージョン<b>1.0</b></span>
+    </div>
+    <p class="legal-lead">シンガポール法人であるBUKCS PTE. LTD.（以下「当社」）は、利用者の個人情報を重要なものと考え、シンガポール個人情報保護法（PDPA）、日本の個人情報の保護に関する法律、大韓民国の個人情報保護法その他の関係法令を遵守します。本ポリシーは、DigMol アプリおよびウェブサイトがどのような情報をどのように取得・利用・保管・廃棄し、どのように国外へ移転するかを説明するものです。</p>
+  </header>
+
+  
+  
+    <div class="legal-xlate"><div>この日本語版は便宜のために提供されるものです。大韓民国に居住する利用者については、解釈に相違が生じた場合、韓国語版が優先します。</div></div>
+  
+
+  
+  
+
+  <div class="legal-cols">
+
+    <aside class="legal-toc">
+      <div class="toc-t">目次</div>
+      <ol>
+        
+          <li><a href="#s1">1. 取得する個人情報の項目</a></li>
+        
+          <li><a href="#s2">2. 個人情報の利用目的</a></li>
+        
+          <li><a href="#s3">3. 保有および利用期間</a></li>
+        
+          <li><a href="#s4">4. 第三者提供</a></li>
+        
+          <li><a href="#s5">5. 個人情報の取扱いの委託</a></li>
+        
+          <li><a href="#s6">6. 利用者の権利と行使方法</a></li>
+        
+          <li><a href="#s7">7. 個人情報の国外移転</a></li>
+        
+          <li><a href="#s8">8. 未成年者の個人情報</a></li>
+        
+          <li><a href="#s9">9. Cookie および類似技術</a></li>
+        
+          <li><a href="#s10">10. 安全管理措置</a></li>
+        
+          <li><a href="#s11">11. 個人情報保護責任者およびお問い合わせ</a></li>
+        
+          <li><a href="#s12">12. 本ポリシーの変更</a></li>
+        
+      </ol>
+    </aside>
+
+    <article class="legal-doc">
+
+      
+        <div class="legal-tldr">
+          <div class="tldr-t">要点</div>
+          <ul>
+            <li>運営者はシンガポール法人です。<b>取得した情報は国外で処理・保管されます。</b>（下記7番を参照）</li><li>会員登録は行いません。氏名やマイナンバー等の識別情報は取得しません。</li><li>報酬の付与と不正防止のため、<b>端末識別子、ウォレットアドレス、活動記録</b>を取り扱います。</li><li>位置情報とカメラは、当該機能を利用するときに、利用者が許可した場合にのみアクセスします。</li><li>いつでも開示・削除を請求できます。ただし<b>ブロックチェーンに記録された取引は技術的に削除できません。</b></li>
+          </ul>
+          <div class="tldr-note">この要約は理解を助けるためのものであり、法的効力は本文にあります。</div>
+        </div>
+      
+
+      
+        <section class="legal-s" id="s1">
+          <h2><span class="s-no">1</span>1. 取得する個人情報の項目</h2>
+
+          
+            
+              <p>当社は、サービス提供に必要な最小限の情報のみを取得します。会員登録手続がないため、氏名、生年月日、個人番号等の識別情報は取得しません。</p>
+
+            
+          
+            
+              <div class="legal-table-x">
+                <table class="legal-table">
+                  <thead><tr>
+                    <th>区分</th><th>項目</th><th>取得時点</th>
+                  </tr></thead>
+                  <tbody>
+                    
+                      <tr><td>必須</td><td>端末識別子（広告識別子等）、OS・端末モデル、アプリバージョン</td><td>アプリ初回起動時に自動</td></tr>
+                    
+                      <tr><td>必須</td><td>ブロックチェーンウォレットアドレス、取引ハッシュ</td><td>ウォレット接続および報酬支払時</td></tr>
+                    
+                      <tr><td>必須</td><td>活動記録（付与履歴、時刻、ブースター倍率）、招待コード・流入経路</td><td>サービス利用時に自動</td></tr>
+                    
+                      <tr><td>任意</td><td>位置情報（GPS 座標、移動距離）</td><td>歩行報酬機能の利用時（同意後）</td></tr>
+                    
+                      <tr><td>任意</td><td>写真および撮影メタデータ</td><td>写真登録機能の利用時（同意後）</td></tr>
+                    
+                      <tr><td>任意</td><td>プッシュ通知トークン</td><td>通知受信に同意した場合</td></tr>
+                    
+                      <tr><td>任意</td><td>メールアドレス</td><td>問い合わせ・通報の際に利用者が入力</td></tr>
+                    
+                      <tr><td>自動</td><td>接続 IP、接続日時、Cookie、サービス利用記録、エラーログ</td><td>サービス利用時に自動</td></tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s2">
+          <h2><span class="s-no">2</span>2. 個人情報の利用目的</h2>
+
+          
+            
+              <ul><li><b>サービスの提供</b> — 活動の認識、MOL 付与の計算、報酬の支払、付与履歴の照会</li><li><b>不正利用の防止</b> — 重複アカウント・自動化ツール・位置偽装の検知、アビューズの遮断</li><li><b>招待および紹介の管理</b> — 招待リンクの流入経路の確認、双方への報酬付与</li><li><b>サービスの改善</b> — 利用統計の分析、エラー診断、機能改善および新機能の開発</li><li><b>お問い合わせ対応</b> — 問い合わせ・通報の受付および結果の回答</li><li><b>告知および通知</b> — 規約変更、報酬方針の変更、点検等の必須案内（任意同意の場合はマーケティング情報を含みます）</li><li><b>法令の遵守</b> — 日本、シンガポールおよび大韓民国の法令上の義務の履行、制裁対象者の確認、捜査機関からの適法な要請への対応</li></ul>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s3">
+          <h2><span class="s-no">3</span>3. 保有および利用期間</h2>
+
+          
+            
+              <p>当社は、取得目的が達成された場合、遅滞なく個人情報を廃棄します。ただし、次の場合には当該期間中これを保管します。</p>
+
+            
+          
+            
+              <div class="legal-table-x">
+                <table class="legal-table">
+                  <thead><tr>
+                    <th>情報</th><th>保有期間</th><th>根拠</th>
+                  </tr></thead>
+                  <tbody>
+                    
+                      <tr><td>端末識別子・活動記録</td><td>利用契約の解除後30日</td><td>アビューズの再発防止および問い合わせ対応</td></tr>
+                    
+                      <tr><td>不正利用の記録</td><td>3年</td><td>再発防止および紛争対応</td></tr>
+                    
+                      <tr><td>位置情報</td><td>個別の利用後直ちに廃棄（集計された移動距離のみ保管）</td><td>位置情報関連法令</td></tr>
+                    
+                      <tr><td>問い合わせ・相談の記録</td><td>3年</td><td>消費者の苦情・紛争処理の記録</td></tr>
+                    
+                      <tr><td>接続ログ・IP</td><td>3か月</td><td>通信の秘密に関する法令</td></tr>
+                    
+                      <tr><td>マネー・ローンダリング防止関連の記録</td><td>5年</td><td>シンガポールおよび関係国の法令</td></tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            
+          
+            
+              <div class="legal-note">ウォレットアドレスおよび取引履歴はブロックチェーンに記録されるため、<b>当社が削除することはできません。</b>これは分散型台帳技術の本質的な特性です。ウォレットを接続する前に、必ずこの点をご理解ください。</div>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s4">
+          <h2><span class="s-no">4</span>4. 第三者提供</h2>
+
+          
+            
+              <p>当社は、利用者の個人情報を第三者に提供しません。ただし、次の場合はこの限りではありません。</p>
+
+            
+          
+            
+              <ul><li>利用者が事前に明示的に同意した場合</li><li>法令に特別の定めがある場合、または日本、シンガポールもしくは大韓民国の捜査機関が法令に定める手続および方法に従って要請した場合</li><li>統計の作成・学術研究等の目的で、特定の個人を識別できない形に加工して提供する場合</li></ul>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s5">
+          <h2><span class="s-no">5</span>5. 個人情報の取扱いの委託</h2>
+
+          
+            
+              <p>当社は、円滑なサービス提供のため次のとおり業務を委託しており、委託契約において個人情報保護に関する事項を明確に定め、管理・監督を行っています。</p>
+
+            
+          
+            
+              <div class="legal-table-x">
+                <table class="legal-table">
+                  <thead><tr>
+                    <th>委託先</th><th>委託業務</th><th>保有期間</th>
+                  </tr></thead>
+                  <tbody>
+                    
+                      <tr><td>クラウドインフラ提供事業者</td><td>サーバー運用およびデータ保管</td><td>委託契約の終了時まで</td></tr>
+                    
+                      <tr><td>プッシュ通知サービス提供事業者</td><td>アプリのプッシュメッセージ送信</td><td>委託契約の終了時まで</td></tr>
+                    
+                      <tr><td>広告ネットワーク事業者</td><td>リワード広告の配信および視聴確認</td><td>委託契約の終了時まで</td></tr>
+                    
+                      <tr><td>分析ツール提供事業者</td><td>アプリ利用統計の分析およびエラー収集</td><td>委託契約の終了時まで</td></tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            
+          
+            
+              <div class="legal-note">委託先の具体的な名称はサービス構成に応じて変更されることがあり、変更時には本ポリシーを通じて公開します。委託先の多くはサーバーを国外に置いているため、下記<b>7番（国外移転）</b>もあわせてご確認ください。</div>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s6">
+          <h2><span class="s-no">6</span>6. 利用者の権利と行使方法</h2>
+
+          
+            
+              <p>利用者は、いつでも次の権利を行使することができます。</p>
+
+            
+          
+            
+              <ol><li>個人情報の開示の請求</li><li>誤りがある場合の訂正の請求</li><li>削除の請求（法令上保管義務がある場合を除きます）</li><li>利用停止の請求</li><li>同意を撤回する権利（任意同意項目に限ります）</li><li>国外移転への同意を拒否する権利（ただしこの場合、サービスの利用が制限されることがあります）</li></ol>
+
+            
+          
+            
+              <p>権利の行使は、アプリ内の設定メニューまたは <a href="mailto:privacy@digmol.com">privacy@digmol.com</a> への連絡により行うことができます。当社は、請求を受けた日から10日以内に処理結果を通知します。削除の請求を受けた場合、当社は当該情報を復元・再生できない方法で廃棄します。</p>
+
+            
+          
+            
+              <div class="legal-note">位置情報およびカメラへのアクセス権限は、端末の OS 設定からいつでも撤回できます。ただし、撤回した場合は歩行・写真などの関連する報酬機能を利用できなくなります。</div>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s7">
+          <h2><span class="s-no">7</span>7. 個人情報の国外移転</h2>
+
+          
+            
+              <div class="legal-note"><b>必ずご確認ください。</b>当社はシンガポールに所在する法人であり、サービスのインフラも国外にあります。したがって利用者の個人情報は<b>日本国外へ移転されて処理・保管されます。</b></div>
+
+            
+          
+            
+              <p>個人情報の保護に関する法律第28条および大韓民国「個人情報保護法」第28条の8に基づき、国外移転に関する事項を次のとおり告知します。</p>
+
+            
+          
+            
+              <div class="legal-table-x">
+                <table class="legal-table">
+                  <thead><tr>
+                    <th>区分</th><th>内容</th>
+                  </tr></thead>
+                  <tbody>
+                    
+                      <tr><td>移転を受ける者</td><td>BUKCS PTE. LTD.（サービス運営者）および上記5番に記載した委託先</td></tr>
+                    
+                      <tr><td>移転先の国</td><td>シンガポールおよび各委託先のサーバー所在国</td></tr>
+                    
+                      <tr><td>移転先国の個人情報保護制度</td><td>シンガポールは個人情報保護法（PDPA）を有し、個人情報保護委員会（PDPC）が監督機関として設置されています。制度の概要は pdpc.gov.sg で確認できます。</td></tr>
+                    
+                      <tr><td>移転する項目</td><td>上記1番に記載した取得項目のすべて</td></tr>
+                    
+                      <tr><td>移転の日時および方法</td><td>サービス利用時に、情報通信網を通じて暗号化された状態で随時送信</td></tr>
+                    
+                      <tr><td>移転の目的</td><td>上記2番に記載した利用目的のすべて</td></tr>
+                    
+                      <tr><td>保有・利用期間</td><td>上記3番に記載した期間と同一</td></tr>
+                    
+                      <tr><td>拒否の方法および効果</td><td><a href="mailto:privacy@digmol.com">privacy@digmol.com</a> 宛に拒否の意思を通知することができます。ただし、国外移転はサービス提供に不可欠であるため、拒否した場合はサービスの利用が制限され、または利用できなくなることがあります。</td></tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            
+          
+            
+              <p>当社は、国外へ移転される個人情報について、日本の個人情報保護法が求める水準に相当する保護措置を適用し、通信経路の暗号化およびアクセス制御により安全に管理します。</p>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s8">
+          <h2><span class="s-no">8</span>8. 未成年者の個人情報</h2>
+
+          
+            
+              <p>当社は、満14歳未満の方の個人情報を取得せず、本サービスの利用対象ともしていません。満14歳未満の方の情報を取得した事実が確認された場合、直ちに当該情報を廃棄し、利用を停止します。利用者の居住国の法令がこれより高い年齢基準を定める場合には、当該基準に従います。</p>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s9">
+          <h2><span class="s-no">9</span>9. Cookie および類似技術</h2>
+
+          
+            
+              <p>当社は、ウェブサイトにおいて、招待コードの流入経路を維持し、サービス利用統計を把握するために Cookie およびローカルストレージを使用します。</p>
+
+            
+          
+            
+              <ul><li><b>必須 Cookie</b> — 招待コードおよび言語設定の保存、セッションの維持。サービス提供に必ず必要です。</li><li><b>分析用ストレージ</b> — ページ訪問統計およびエラー診断。</li></ul>
+
+            
+          
+            
+              <p>利用者はブラウザの設定で Cookie の保存を拒否することができます。ただし必須 Cookie を遮断すると、招待報酬が正常に紐づかないことがあります。</p>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s10">
+          <h2><span class="s-no">10</span>10. 安全管理措置</h2>
+
+          
+            
+              <ul><li><b>技術的措置</b> — 通信経路の暗号化（HTTPS/TLS）、重要情報保存時の暗号化、アクセス権限の最小化、侵入防止システムの運用</li><li><b>組織的措置</b> — 個人情報取扱者の最小化および定期的な教育、内部管理計画の策定・実施、アクセス記録の保管および点検</li><li><b>物理的措置</b> — データが保管される施設への入退室管理</li></ul>
+
+            
+          
+            
+              <div class="legal-note">当社は、利用者のウォレットの秘密鍵またはリカバリーフレーズを取得・保管しません。いかなる場合も当社の担当者が秘密鍵をお尋ねすることはありませんので、これを求める連絡は詐称です。応じずに、直ちにご連絡ください。</div>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s11">
+          <h2><span class="s-no">11</span>11. 個人情報保護責任者およびお問い合わせ</h2>
+
+          
+            
+              <p>当社は、個人情報の取扱いに関する業務を統括し、利用者の苦情を処理するため、次のとおり責任者を定めています。</p>
+
+            
+          
+            
+              <ul><li>個人情報保護責任者: （選任予定）</li><li>お問い合わせ: <a href="mailto:privacy@digmol.com">privacy@digmol.com</a></li></ul>
+
+            
+          
+            
+              <p>個人情報の取扱いに関する申立ては、監督機関に対して行うこともできます。</p>
+
+            
+          
+            
+              <ul><li>日本 — 個人情報保護委員会（PPC）ppc.go.jp</li><li>シンガポール — 個人情報保護委員会（PDPC）pdpc.gov.sg</li><li>大韓民国 — 個人情報紛争調停委員会 kopico.go.kr / 1833-6972</li></ul>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s12">
+          <h2><span class="s-no">12</span>12. 本ポリシーの変更</h2>
+
+          
+            
+              <p>本プライバシーポリシーは、法令・方針またはサービス内容の変更に応じて改定されることがあります。改定する場合、変更事項と適用日を施行の7日前からアプリ内告知またはウェブサイトを通じて案内します。ただし、利用者の権利に重大な影響を及ぼす変更の場合には30日前に告知し、必要な場合には別途同意を取得します。</p>
+
+            
+          
+        </section>
+      
+
+      <div class="legal-contact">
+        <div class="lc-t">運営者情報</div>
+        <div class="lc-grid">
+          <div><span>商号</span><b>BUKCS PTE. LTD.</b></div>
+          
+          
+          
+          <div><span>設立地</span><b>シンガポール</b></div>
+          <div><span>お問い合わせ</span><b><a href="mailto:support@digmol.com">support@digmol.com</a></b></div>
+          <div><span>個人情報に関するお問い合わせ</span><b><a href="mailto:privacy@digmol.com">privacy@digmol.com</a></b></div>
+        </div>
+      </div>
+
+</article>
+  </div>
+</main>
+</body>
+</html>

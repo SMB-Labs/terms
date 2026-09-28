@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>Terms of Service · DigMol</title>
+<style>
+/* ═══════════════════════════════════════════
+   DigMol — 약관 / 개인정보처리방침
+   style.css 다음에 로드됩니다. 랜딩의 토큰(--ink, --paper 등)이
+   있으면 그걸 쓰고, 없으면 아래 폴백 값으로 떨어집니다.
+   ═══════════════════════════════════════════ */
+
+.legal-body {
+  --lg-ink:    var(--ink, #1a1512);
+  --lg-mute:   var(--mute, #7c7168);
+  --lg-paper:  var(--paper, #fdfaf4);
+  --lg-line:   var(--line, #e8e0d4);
+  --lg-accent: var(--accent, #c8622a);
+  --lg-card:   #fff;
+
+  background: var(--lg-paper);
+  color: var(--lg-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.legal-body #nav .nav-links a.on {
+  color: var(--lg-accent);
+  font-weight: 700;
+}
+
+/* ─────────── 레이아웃 ─────────── */
+.legal-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 108px 22px 80px;
+}
+
+.legal-cols {
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+/* ─────────── 헤더 ─────────── */
+.legal-head {
+  padding-bottom: 34px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--lg-line);
+}
+
+.legal-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: var(--lg-accent);
+  margin-bottom: 14px;
+}
+
+.legal-head h1 {
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.14;
+  margin: 0 0 18px;
+}
+
+.legal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin-bottom: 22px;
+}
+
+.legal-meta span {
+  font-size: 12.5px;
+  color: var(--lg-mute);
+  background: var(--lg-card);
+  border: 1px solid var(--lg-line);
+  border-radius: 999px;
+  padding: 5px 13px;
+}
+
+.legal-meta b {
+  color: var(--lg-ink);
+  font-weight: 600;
+  margin-left: 3px;
+}
+
+.legal-lead {
+  font-size: 16.5px;
+  line-height: 1.78;
+  color: var(--lg-mute);
+  max-width: 74ch;
+  margin: 0;
+}
+
+/* ─────────── 목차 ─────────── */
+.legal-toc {
+  position: sticky;
+  top: 92px;
+}
+
+.toc-t {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: var(--lg-mute);
+  margin-bottom: 14px;
+}
+
+.legal-toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: toc;
+  border-left: 2px solid var(--lg-line);
+}
+
+.legal-toc li { counter-increment: toc; }
+
+.legal-toc a {
+  display: block;
+  padding: 7px 0 7px 15px;
+  margin-left: -2px;
+  border-left: 2px solid transparent;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--lg-mute);
+  text-decoration: none;
+  transition: color .16s, border-color .16s;
+}
+
+.legal-toc a:hover { color: var(--lg-ink); }
+
+.legal-toc a.on {
+  color: var(--lg-accent);
+  border-left-color: var(--lg-accent);
+  font-weight: 600;
+}
+
+/* ─────────── 본문 ─────────── */
+.legal-doc { min-width: 0; }
+
+.legal-s { scroll-margin-top: 92px; margin-bottom: 46px; }
+
+.legal-s h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -.02em;
+  line-height: 1.35;
+  margin: 0 0 16px;
+}
+
+.s-no {
+  flex: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--lg-accent);
+  background: color-mix(in srgb, var(--lg-accent) 11%, transparent);
+  border-radius: 7px;
+  min-width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  transform: translateY(-1px);
+}
+
+.legal-doc p {
+  font-size: 15.2px;
+  line-height: 1.85;
+  color: #3c342d;
+  margin: 0 0 14px;
+  max-width: 76ch;
+}
+
+.legal-doc ul,
+.legal-doc ol {
+  margin: 0 0 16px;
+  padding-left: 22px;
+  max-width: 76ch;
+}
+
+.legal-doc li {
+  font-size: 15.2px;
+  line-height: 1.82;
+  color: #3c342d;
+  margin-bottom: 8px;
+  padding-left: 3px;
+}
+
+.legal-doc li::marker { color: var(--lg-accent); font-weight: 600; }
+
+.legal-doc a { color: var(--lg-accent); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ─────────── 요약 박스 ─────────── */
+.legal-tldr {
+  background: var(--lg-card);
+  border: 1px solid var(--lg-line);
+  border-radius: 16px;
+  padding: 22px 24px 18px;
+  margin-bottom: 42px;
+}
+
+.tldr-t {
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: -.01em;
+  margin-bottom: 12px;
+  color: var(--lg-ink);
+}
+
+.tldr-t::before { content: '◆'; color: var(--lg-accent); margin-right: 7px; font-size: 10px; }
+
+.legal-tldr ul { list-style: none; padding: 0; margin: 0 0 12px; }
+
+.legal-tldr li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14.4px;
+  line-height: 1.72;
+  margin-bottom: 9px;
+}
+
+.legal-tldr li::before {
+  content: '';
+  position: absolute;
+  left: 4px; top: 10px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--lg-accent);
+}
+
+.tldr-note {
+  font-size: 12.2px;
+  color: var(--lg-mute);
+  padding-top: 11px;
+  border-top: 1px dashed var(--lg-line);
+}
+
+/* ─────────── 강조 노트 ─────────── */
+.legal-note {
+  background: color-mix(in srgb, var(--lg-accent) 6%, transparent);
+  border-left: 3px solid var(--lg-accent);
+  border-radius: 0 11px 11px 0;
+  padding: 14px 18px;
+  font-size: 14.4px;
+  line-height: 1.75;
+  color: #3c342d;
+  margin: 0 0 16px;
+  max-width: 76ch;
+}
+
+/* ─────────── 표 ─────────── */
+.legal-table-x {
+  overflow-x: auto;
+  margin: 0 0 18px;
+  border: 1px solid var(--lg-line);
+  border-radius: 13px;
+  background: var(--lg-card);
+  -webkit-overflow-scrolling: touch;
+}
+
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 480px;
+}
+
+.legal-table th {
+  text-align: left;
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: .01em;
+  color: var(--lg-mute);
+  padding: 12px 16px;
+  background: color-mix(in srgb, var(--lg-line) 34%, transparent);
+  border-bottom: 1px solid var(--lg-line);
+  white-space: nowrap;
+}
+
+.legal-table td {
+  padding: 13px 16px;
+  line-height: 1.65;
+  color: #3c342d;
+  border-bottom: 1px solid color-mix(in srgb, var(--lg-line) 62%, transparent);
+  vertical-align: top;
+}
+
+.legal-table tr:last-child td { border-bottom: none; }
+.legal-table td:first-child { font-weight: 600; white-space: nowrap; color: var(--lg-ink); }
+
+/* ─────────── 사업자 정보 ─────────── */
+.legal-contact {
+  background: var(--lg-card);
+  border: 1px solid var(--lg-line);
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 52px;
+}
+
+.lc-t {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: var(--lg-mute);
+  margin-bottom: 16px;
+}
+
+.lc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px 26px;
+}
+
+.lc-grid > div { display: flex; flex-direction: column; gap: 3px; }
+.lc-grid span { font-size: 11.8px; color: var(--lg-mute); }
+.lc-grid b { font-size: 14.2px; font-weight: 600; word-break: break-all; }
+
+/* ─────────── 반응형 ─────────── */
+@media (max-width: 900px) {
+  .legal-cols { grid-template-columns: 1fr; gap: 30px; }
+
+  .legal-toc {
+    position: static;
+    background: var(--lg-card);
+    border: 1px solid var(--lg-line);
+    border-radius: 14px;
+    padding: 18px 20px;
+  }
+
+  .legal-toc ol {
+    border-left: none;
+    columns: 2;
+    column-gap: 22px;
+  }
+
+  .legal-toc a {
+    padding: 5px 0;
+    margin-left: 0;
+    border-left: none;
+    break-inside: avoid;
+  }
+
+  .legal-toc a.on { border-left: none; }
+}
+
+@media (max-width: 560px) {
+  .legal-wrap { padding: 92px 17px 64px; }
+  .legal-toc ol { columns: 1; }
+  .legal-doc p, .legal-doc li { font-size: 14.8px; }
+  .legal-s h2 { font-size: 18px; }
+  .legal-contact { padding: 20px; }
+}
+
+
+
+.legal-xlate {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: color-mix(in srgb, var(--lg-accent, #c8622a) 7%, transparent);
+  border: 1px solid color-mix(in srgb, var(--lg-accent, #c8622a) 24%, transparent);
+  border-radius: 12px;
+  padding: 13px 16px;
+  margin: 0 0 26px;
+  font-size: 13.4px;
+  line-height: 1.7;
+  color: var(--lg-mute, #7c7168);
+}
+.legal-xlate b { color: var(--lg-ink, #1a1512); font-weight: 650; }
+.legal-xlate::before { content: '⚖'; flex: none; opacity: .65; }
+
+
+/* ── Mobile WebView overrides ── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #fdfaf4;
+  color: #1a1512;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Pretendard',
+    'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', 'Hiragino Sans',
+    'Apple SD Gothic Neo', sans-serif;
+  line-height: 1.6;
+  padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0)
+           env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
+}
+.legal-body {
+  --lg-ink: #1a1512;
+  --lg-mute: #7c7168;
+  --lg-paper: #fdfaf4;
+  --lg-line: #e8e0d4;
+  --lg-accent: #c8622a;
+  --lg-card: #fff;
+  background: var(--lg-paper);
+  color: var(--lg-ink);
+  -webkit-font-smoothing: antialiased;
+}
+.legal-wrap {
+  max-width: 100% !important;
+  margin: 0 auto;
+  padding: 16px 16px 48px !important;
+}
+.legal-cols {
+  display: block !important;
+}
+.legal-toc {
+  position: static !important;
+  background: var(--lg-card);
+  border: 1px solid var(--lg-line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 28px;
+  top: auto;
+}
+.legal-toc ol {
+  border-left: none !important;
+  columns: 1 !important;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: toc;
+}
+.legal-toc a {
+  padding: 8px 0 !important;
+  margin-left: 0 !important;
+  border-left: none !important;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.legal-toc a.on {
+  border-left: none !important;
+  color: var(--lg-accent);
+  font-weight: 600;
+}
+.legal-s { scroll-margin-top: 12px; margin-bottom: 36px; }
+.legal-head { padding-bottom: 24px; margin-bottom: 28px; }
+.legal-head h1 {
+  font-size: 26px !important;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0 0 14px;
+}
+.legal-lead { font-size: 15px; line-height: 1.75; max-width: none; }
+.legal-meta { gap: 6px 8px; margin-bottom: 16px; }
+.legal-meta span { font-size: 12px; padding: 5px 11px; }
+.legal-doc p,
+.legal-doc li { font-size: 15px !important; line-height: 1.8; max-width: none; }
+.legal-s h2 { font-size: 17.5px !important; gap: 9px; margin: 0 0 12px; }
+.legal-table {
+  min-width: 520px;
+  width: 100%;
+  font-size: 13px;
+}
+.legal-table th,
+.legal-table td {
+  padding: 10px 12px;
+  word-break: break-word;
+}
+.legal-table td:first-child {
+  white-space: normal;
+  min-width: 72px;
+}
+.legal-table-x {
+  margin: 0 0 16px;
+  border-radius: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+.legal-tldr { padding: 18px 16px 14px; margin-bottom: 28px; border-radius: 14px; }
+.legal-tldr li { font-size: 14px; }
+.legal-note { font-size: 14px; padding: 12px 14px; max-width: none; }
+.legal-contact { padding: 18px; margin-top: 36px; border-radius: 14px; }
+.lc-grid {
+  grid-template-columns: 1fr !important;
+  gap: 12px;
+}
+a { -webkit-tap-highlight-color: rgba(200, 98, 42, 0.15); }
+
+</style>
+</head>
+<body class="legal-body">
+<main class="legal-wrap">
+<header class="legal-head">
+    <div class="legal-kicker">LEGAL</div>
+    <h1>Terms of Service</h1>
+    <div class="legal-meta">
+      <span>Effective<b>1 January 2026</b></span>
+      <span>Last updated<b>1 January 2026</b></span>
+      <span>Version<b>1.0</b></span>
+    </div>
+    <p class="legal-lead">These Terms set out the conditions on which BUKCS PTE. LTD., a company incorporated in Singapore, provides the DigMol mobile application and related web services, together with the rights and obligations of the company and its users. By installing the app or using the service you accept these Terms.</p>
+  </header>
+
+  
+  
+    <div class="legal-xlate"><div>This English version is provided for your convenience. For users resident in the Republic of Korea, the Korean version prevails in the event of any discrepancy.</div></div>
+  
+
+  
+  
+
+  <div class="legal-cols">
+
+    <aside class="legal-toc">
+      <div class="toc-t">Contents</div>
+      <ol>
+        
+          <li><a href="#s1">1. Purpose and operator</a></li>
+        
+          <li><a href="#s2">2. Definitions</a></li>
+        
+          <li><a href="#s3">3. Publication and amendment of these Terms</a></li>
+        
+          <li><a href="#s4">4. Formation of the agreement</a></li>
+        
+          <li><a href="#s5">5. Provision of the Service</a></li>
+        
+          <li><a href="#s6">6. Nature of MOL rewards</a></li>
+        
+          <li><a href="#s7">7. Accrual and payment of rewards</a></li>
+        
+          <li><a href="#s8">8. Invitations and referral rewards</a></li>
+        
+          <li><a href="#s9">9. User obligations</a></li>
+        
+          <li><a href="#s10">10. Content rights and licence</a></li>
+        
+          <li><a href="#s11">11. Restriction of use and termination</a></li>
+        
+          <li><a href="#s12">12. Changes to and discontinuation of the Service</a></li>
+        
+          <li><a href="#s13">13. Limitation of liability</a></li>
+        
+          <li><a href="#s14">14. Governing law and disputes</a></li>
+        
+      </ol>
+    </aside>
+
+    <article class="legal-doc">
+
+      
+        <div class="legal-tldr">
+          <div class="tldr-t">In short</div>
+          <ul>
+            <li>The service is operated by <b>BUKCS PTE. LTD.</b>, a Singapore company. Your information is processed outside your country.</li><li>No account sign-up. Open the app and MOL starts accruing; your wallet address is your identity.</li><li>MOL is an in-service reward. <b>It is not legal tender, and we do not guarantee its value or price.</b></li><li>If we detect abuse — automation tools, duplicate accounts, spoofed location — unpaid accruals may be cancelled and access restricted.</li><li>Nothing here removes the <b>mandatory consumer protections of your country of residence.</b></li>
+          </ul>
+          <div class="tldr-note">This summary is for convenience only. The full text below is what governs.</div>
+        </div>
+      
+
+      
+        <section class="legal-s" id="s1">
+          <h2><span class="s-no">1</span>1. Purpose and operator</h2>
+
+          
+            
+              <p>These Terms govern the use of the DigMol mobile application and any ancillary services (the "Service") provided by BUKCS PTE. LTD. (the "Company"), a company incorporated under the laws of Singapore, and set out the rights, obligations and responsibilities of the Company and its users.</p>
+
+            
+          
+            
+              <div class="legal-note"><b>Operator notice.</b> The Company is <b>incorporated in Singapore</b>. Your information is therefore processed outside your own country. See the <a href="https://digmol.com/en/privacy">Privacy Policy</a> for details.</div>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s2">
+          <h2><span class="s-no">2</span>2. Definitions</h2>
+
+          
+            
+              <ol><li>"Service" means the DigMol app, website and all associated features provided by the Company.</li><li>"User" means any person who uses the Service under these Terms.</li><li>"MOL" means the reward a User accrues through activity within the Service.</li><li>"Wallet" means the blockchain address a User uses to receive and hold MOL, together with the software that manages it.</li><li>"Smart contract" means the program that records the reward rules and executes automatically on a blockchain network.</li><li>"Activity" means an action designated by the Company as reward-eligible, such as taking and uploading a photo, walking, watching an advertisement or inviting a friend.</li></ol>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s3">
+          <h2><span class="s-no">3</span>3. Publication and amendment of these Terms</h2>
+
+          
+            
+              <ol><li>The Company publishes these Terms on the initial screen of the Service or on a linked screen so that Users can read them easily.</li><li>The Company may amend these Terms to the extent permitted by applicable law.</li><li>Amendments are announced at least 7 days before they take effect, stating the effective date and the reason. Where a change is materially adverse to Users, notice is given at least 30 days in advance, together with individual notice by in-app message or email.</li><li>A User who does not accept an amendment may stop using the Service and terminate the agreement. Continued use after the stated effective date is treated as acceptance.</li></ol>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s4">
+          <h2><span class="s-no">4</span>4. Formation of the agreement</h2>
+
+          
+            
+              <ol><li>No sign-up is required. The agreement is formed when the User installs and launches the app and accepts these Terms.</li><li>Users are identified by device identifier or by the wallet address they connect.</li><li>Children under 14 may not use the Service. Minors aged 14 or over must obtain the consent of a legal guardian, and the Company may restrict access where it identifies use by a minor. Where the law of the User's country sets a higher age threshold, that threshold applies.</li><li>The Company may refuse or subsequently terminate access in the following cases.</li></ol>
+
+            
+          
+            
+              <ul><li>Unauthorised use of another person's identity, device or wallet</li><li>A prior restriction for breach of these Terms</li><li>The User appears on a sanctions list of the Republic of Korea, Singapore, or an international sanctions regime</li><li>Access from a country or region in which the Company has elected not to offer the Service</li><li>A manifest intent to disrupt the normal operation of the Service</li></ul>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s5">
+          <h2><span class="s-no">5</span>5. Provision of the Service</h2>
+
+          
+            
+              <p>The Company provides the following.</p>
+
+            
+          
+            
+              <ul><li>Activity-based MOL reward accrual</li><li>Access to accrual history and reward rules</li><li>Friend invitations and referral rewards</li><li>Reward multiplier features, including the booster</li><li>Any other service the Company develops or provides through partners</li></ul>
+
+            
+          
+            
+              <p>The Service is intended to be available 24 hours a day, all year round. The Company may suspend all or part of it where operationally or technically necessary — system maintenance, equipment replacement, network failure, blockchain network incidents — and where an emergency makes advance notice impracticable, notice is given afterwards.</p>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s6">
+          <h2><span class="s-no">6</span>6. Nature of MOL rewards</h2>
+
+          
+            
+              <div class="legal-note"><b>Important.</b> MOL is not legal tender. The Company does not guarantee or promise any market value, exchange rate or return. Using the Service is not an investment, and the Company provides no investment advice and no financial services.</div>
+
+            
+          
+            
+              <ol><li>MOL is granted as a reward for in-service activity, under rules set by the Company.</li><li>Accrual, deduction and expiry follow the rules published in the app and in the smart contract.</li><li>The Company gives no warranty as to the price or liquidity of MOL, or as to whether it can be traded on any third-party market.</li><li>Any tax arising from holding or disposing of MOL is the User's own, under the law of the User's country of residence. The Company is not responsible for the User's tax compliance.</li><li>Users are responsible for safeguarding their own private key and recovery phrase. The Company does not hold them and is not liable for loss caused by their loss or disclosure.</li><li>The Company does not offer redemption, buy-back or exchange of MOL into fiat currency.</li></ol>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s7">
+          <h2><span class="s-no">7</span>7. Accrual and payment of rewards</h2>
+
+          
+            
+              <ol><li>When a User completes a designated activity, the quantity of MOL set for that activity accrues.</li><li>Accrual amounts, daily caps, booster multipliers and similar details are published in the app and may change in line with service policy.</li><li>Rewards are paid out through a smart contract. Payment may be delayed for reasons beyond the Company's control, including network congestion, outages and hard forks.</li><li>Where the following abuse is identified, the Company may cancel <b>accruals that have not yet been transferred to the User's wallet</b>.</li></ol>
+
+            
+          
+            
+              <ul><li>Use of automation — macros, bots, emulators and the like</li><li>Spoofed location data or tampered device information</li><li>Duplicate accrual by one person across multiple accounts or devices</li><li>Accrual through false, misappropriated or inappropriate content</li><li>Accrual by knowingly exploiting a system error or bug</li><li>Any other method that cannot be regarded as normal use of the Service</li></ul>
+
+            
+          
+            
+              <div class="legal-note">Assets <b>already transferred to a User's wallet cannot be recovered by the Company</b>, as a technical consequence of how blockchains work. In such cases the Company will suspend further accrual and restrict access, and may separately claim damages where the abuse has caused it loss.</div>
+
+            
+          
+            
+              <p>Before taking such measures the Company notifies the User of the reason and gives an opportunity to respond. Where urgency requires immediate action to prevent further harm, notice is given without delay afterwards.</p>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s8">
+          <h2><span class="s-no">8</span>8. Invitations and referral rewards</h2>
+
+          
+            
+              <ol><li>A User may invite new Users through a personal invitation link, and both the inviter and the invitee may receive a reward on the terms set by the Company.</li><li>Invitation rewards are paid once the invitee has actually installed and launched the app and been confirmed as a valid User.</li><li>Rewards may be withheld where a person invites themselves across multiple devices, induces false installations, sends bulk unsolicited invitations, offers payment in exchange for installation, or otherwise acts against the purpose of the referral programme.</li><li>The Company may change the amount and conditions of invitation rewards on prior notice.</li></ol>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s9">
+          <h2><span class="s-no">9</span>9. User obligations</h2>
+
+          
+            
+              <p>Users must not do any of the following.</p>
+
+            
+          
+            
+              <ul><li>Misappropriate another person's personal data, wallet address or device</li><li>Reverse-engineer or decompile the Service, or modify the app without authorisation</li><li>Circumvent the reward system using rooted or jailbroken devices, emulators or location-spoofing apps</li><li>Place excessive load on the servers or otherwise disrupt normal operation</li><li>Upload content that infringes copyright, likeness rights or other rights of others</li><li>Upload obscene, violent, hateful or crime-related content</li><li>Use the Service for money laundering, terrorist financing, sanctions evasion or any other unlawful purpose</li><li>Breach applicable law, these Terms or any usage policy published by the Company</li></ul>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s10">
+          <h2><span class="s-no">10</span>10. Content rights and licence</h2>
+
+          
+            
+              <ol><li>Users retain copyright in the photographs and other content they upload.</li><li>Users grant the Company a free, non-exclusive licence to use, reproduce, modify, display and distribute that content for the purpose of operating, improving and promoting the Service. The licence ends, to that extent, when the User deletes the content or terminates the agreement — except for copies already distributed and for retention required by law.</li><li>The Company may remove or restrict content that infringes the rights of others or breaches the law or these Terms, and will notify the User of the reason.</li><li>Rights in the Service itself and in content, trade marks and designs created by the Company belong to the Company.</li></ol>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s11">
+          <h2><span class="s-no">11</span>11. Restriction of use and termination</h2>
+
+          
+            
+              <ol><li>Where a User breaches these Terms the Company may act in stages — warning, cancellation of accrual, temporary suspension, permanent suspension. Where a breach is serious or repeated, permanent suspension may be immediate.</li><li>The Company notifies the User of the reason and gives an opportunity to respond before acting. In urgent cases, notice follows without delay.</li><li>Users may terminate the agreement at any time through the in-app menu or by contacting support.</li><li>On termination, MOL that has accrued but not yet been paid out lapses. Assets already transferred to the User's wallet remain the User's, regardless of termination.</li></ol>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s12">
+          <h2><span class="s-no">12</span>12. Changes to and discontinuation of the Service</h2>
+
+          
+            
+              <ol><li>The Company may change the content of the Service where operationally or technically necessary, and will give advance notice of the change and its effective date.</li><li>The Company may discontinue all or part of the Service. In that case it will give notice in the app and by email at least 30 days before the closing date, together with an explanation of what happens to accrued MOL.</li></ol>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s13">
+          <h2><span class="s-no">13</span>13. Limitation of liability</h2>
+
+          
+            
+              <ol><li>The Company is not liable where it cannot provide the Service for reasons beyond its control, including acts of God, war, national emergency, suspension of telecommunications services, or blockchain network failure, interruption or forks.</li><li>The Company is not liable for loss attributable to the User — lost private keys, sending to a wrong address, phishing and the like.</li><li>The Company is not liable for loss arising from a User's use of third-party services such as exchanges, wallets or dApps.</li><li>This clause does not apply to loss caused by the Company's wilful misconduct or gross negligence, to death or personal injury, or to any liability that cannot be limited under applicable law.</li></ol>
+
+            
+          
+            
+              <div class="legal-note">For Users who are consumers, this clause applies only to the extent that it does not restrict rights guaranteed by the <b>mandatory consumer protection law of the User's country of residence</b>.</div>
+
+            
+          
+        </section>
+      
+        <section class="legal-s" id="s14">
+          <h2><span class="s-no">14</span>14. Governing law and disputes</h2>
+
+          
+            
+              <ol><li>The Company and the User will negotiate in good faith to resolve any dispute arising in connection with the Service.</li><li>These Terms are governed by and construed in accordance with the laws of Singapore. <b>This does not deprive a consumer of the protection afforded by mandatory provisions of the law of their country of habitual residence.</b></li><li>A User who is a consumer may bring proceedings in the courts of their country of residence, and this clause does not restrict that right. <b>Users resident in the Republic of Korea may bring proceedings before the Korean courts.</b></li><li>Complaints about the Service may be submitted to the contact address below and will be handled promptly. Users dissatisfied with the outcome may refer the matter to a consumer dispute resolution body in their own country.</li></ol>
+
+            
+          
+            
+              <div class="legal-note">This English text is provided for convenience. <b>For Users resident in the Republic of Korea the Korean version prevails</b> in the event of any discrepancy in interpretation. For all other Users the English version prevails.</div>
+
+            
+          
+        </section>
+      
+
+      <div class="legal-contact">
+        <div class="lc-t">Company information</div>
+        <div class="lc-grid">
+          <div><span>Company</span><b>BUKCS PTE. LTD.</b></div>
+          
+          
+          
+          <div><span>Place of incorporation</span><b>Singapore</b></div>
+          <div><span>Contact</span><b><a href="mailto:support@digmol.com">support@digmol.com</a></b></div>
+          <div><span>Privacy contact</span><b><a href="mailto:privacy@digmol.com">privacy@digmol.com</a></b></div>
+        </div>
+      </div>
+
+</article>
+  </div>
+</main>
+</body>
+</html>
